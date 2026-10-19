@@ -14,26 +14,25 @@
 <meta property="og:url" content="https://learnmetaads.com/iterate-and-refresh/">
 <meta property="og:image" content="https://learnmetaads.com/og.png">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="theme-color" content="#F1F3F7" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#0D1016" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#191919">
 <link rel="icon" href="../favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Recursive:slnt,wght,CASL,CRSV,MONO@-15..0,300..1000,0..1,0..1,0..1&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&display=swap">
 <link rel="stylesheet" href="../assets/site.css">
 <script>try{var t=localStorage.getItem('lma-theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t}catch(e){}</script>
 <!-- /head -->
 <style>
-.brief-form select,.brief-form input{font:600 15px/1.3 var(--body);font-variation-settings:normal;width:100%;min-width:0;padding:8px 10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink)}
-.brief-form select:focus-visible,.brief-form input:focus-visible{outline:2px solid var(--you);outline-offset:1px}
+.brief-form select,.brief-form input{font:600 15px/1.3 var(--font);width:100%;min-width:0;padding:8px 10px;border:2px solid var(--line);border-radius:0;background:var(--bg);color:var(--ink)}
+.brief-form select:focus-visible,.brief-form input:focus-visible{outline:2px solid var(--you);outline-offset:1px;border-color:var(--frame)}
 .calc.brief-form{grid-template-columns:repeat(auto-fit,minmax(min(100%,210px),1fr))}
 .brief-form input::placeholder{color:var(--muted);opacity:1}
 .brief-form .wide{grid-column:1/-1}
-.brief{background:var(--bg);border:1px solid var(--line);border-left:4px solid var(--you);border-radius:12px;padding:14px 16px;display:grid;gap:10px;min-width:0}
-.brief h3{margin:0;font-family:var(--display);font-variation-settings:"CASL" .55;font-weight:800;font-size:20px;line-height:1.15}
+.brief{background:var(--bg);border:2px solid var(--frame);border-left:8px solid var(--blue);padding:14px 16px;display:grid;gap:10px;min-width:0}
+.brief h3{margin:0;font-family:var(--font);font-weight:600;font-size:21px;line-height:1.15;letter-spacing:-.015em}
 .brief .hyp{margin:0;font-weight:700;font-size:15.5px}
 .brief dl{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:6px 14px;font-size:15px}
-.brief dt{font-family:var(--mono);font-variation-settings:"MONO" 1;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);padding-top:3px}
+.brief dt{font-family:var(--font);font-weight:600;font-size:11.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);padding-top:3px}
 .brief dd{margin:0;min-width:0;overflow-wrap:anywhere}
 .brief ol{margin:0;padding-left:20px}
 .brief .gap{color:var(--muted);font-style:italic}
@@ -42,7 +41,7 @@
 <body>
 <!-- bar -->
 <header class="bar"><div class="bar-in">
-<a class="mark" href="../"><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><rect x="1" y="1" width="20" height="20" rx="5" style="fill:var(--you)"/><rect x="5.5" y="7" width="11" height="8" rx="2" style="fill:none;stroke:var(--on-you)" stroke-width="1.6" stroke-dasharray="2.6 1.8"/></svg><span>Learn <b>Meta</b> Ads</span></a>
+<a class="mark" href="../" aria-label="Learn Meta Ads, home"><img src="../assets/tcsa-logo.svg" alt="" width="60" height="45"><span>Learn <b>Meta</b> Ads</span></a>
 <nav class="bar-nav" aria-label="Site"><a href="../#lessons">All lessons</a><button class="btn" type="button" data-theme-btn>Theme: auto</button></nav>
 </div></header>
 <!-- /bar -->
@@ -223,8 +222,11 @@
 </main>
 <!-- foot -->
 <footer class="foot"><div class="foot-in">
+<a class="foot-logo" href="https://thecreativestrategyagency.com/" aria-label="The Creative Strategy Agency"><img src="../assets/tcsa-logo.svg" alt="" width="96" height="72"></a>
+<div class="foot-text">
 <p>Written by <b>Brett Friedman</b> · <a href="https://thecreativestrategyagency.com/">The Creative Strategy Agency</a>.</p>
 <p>Learn Meta Ads is an independent guide. It is not affiliated with or endorsed by Meta Platforms, Inc.</p>
+</div>
 </div></footer>
 <!-- /foot -->
 <script src="../assets/engine.js"></script>

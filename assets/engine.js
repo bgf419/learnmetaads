@@ -11,7 +11,7 @@ const TOKENS = {bg:'bg', surface:'surface', ink:'ink', muted:'muted', line:'line
 function readColors(){ const cs = getComputedStyle(root); for (const k in TOKENS) C[k] = cs.getPropertyValue('--' + TOKENS[k]).trim(); }
 readColors();
 
-const FONT = 'Recursive, ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
+const FONT = '"Instrument Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif';
 const clamp = (x, a = 0, b = 1) => Math.max(a, Math.min(b, x));
 const seg = (t, a, b) => clamp((t - a) / (b - a));
 const easeIO = x => x < .5 ? 2 * x * x : 1 - Math.pow(-2 * x + 2, 2) / 2;
@@ -19,7 +19,11 @@ const easeOut = x => 1 - Math.pow(1 - x, 3);
 const lerp = (a, b, x) => a + (b - a) * x;
 function rng(seed){ return () => { seed = (seed + 0x6D2B79F5) | 0; let t = Math.imul(seed ^ (seed >>> 15), 1 | seed); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296; }; }
 function shuffle(a, r){ for (let i = a.length - 1; i > 0; i--){ const j = Math.floor(r() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
-function rrect(ctx, x, y, w, h, r){ ctx.beginPath(); ctx.roundRect(x, y, w, h, r); }
+/* TCSA's shapes are square: small radii (cards, chips, bars) draw square; large ones (phone bodies) stay round */
+function rrect(ctx, x, y, w, h, r){
+  const sq = v => (v >= 15 && Math.min(w, h) >= 100) ? v : 0;
+  ctx.beginPath(); ctx.roundRect(x, y, w, h, Array.isArray(r) ? r.map(sq) : sq(r));
+}
 function txt(ctx, s, x, y, o = {}){
   ctx.save();
   ctx.globalAlpha *= (o.alpha ?? 1);
