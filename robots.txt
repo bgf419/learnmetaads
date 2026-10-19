@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://learnmetaads.com/sitemap.xml
