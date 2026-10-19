@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- head -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Tracking and attribution · Lesson 10 · Learn Meta Ads</title>
+<meta name="description" content="Pixel, Conversions API, attribution windows, and the gap between the sales Meta counts and the sales your ads caused.">
+<link rel="canonical" href="https://learnmetaads.com/tracking-attribution/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Learn Meta Ads">
+<meta property="og:title" content="Tracking and attribution · Lesson 10 · Learn Meta Ads">
+<meta property="og:description" content="Pixel, Conversions API, attribution windows, and the gap between the sales Meta counts and the sales your ads caused.">
+<meta property="og:url" content="https://learnmetaads.com/tracking-attribution/">
+<meta property="og:image" content="https://learnmetaads.com/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F1F3F7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0D1016" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Recursive:slnt,wght,CASL,CRSV,MONO@-15..0,300..1000,0..1,0..1,0..1&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+<script>try{var t=localStorage.getItem('lma-theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t}catch(e){}</script>
+<!-- /head -->
+</head>
+<body>
+<!-- bar -->
+<header class="bar"><div class="bar-in">
+<a class="mark" href="../"><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><rect x="1" y="1" width="20" height="20" rx="5" style="fill:var(--you)"/><rect x="5.5" y="7" width="11" height="8" rx="2" style="fill:none;stroke:var(--on-you)" stroke-width="1.6" stroke-dasharray="2.6 1.8"/></svg><span>Learn <b>Meta</b> Ads</span></a>
+<nav class="bar-nav" aria-label="Site"><a href="../#lessons">All lessons</a><button class="btn" type="button" data-theme-btn>Theme: auto</button></nav>
+</div></header>
+<!-- /bar -->
+<main class="wrap">
+  <header class="hero">
+    <p class="eyebrow">Lesson 10 · Measurement · 12 min</p>
+    <h1>Tracking and <span>attribution</span></h1>
+    <p class="lede">Every number in lessons 2 and 3 starts with Meta hearing about a sale. This lesson follows a sale from your checkout to Ads Manager, shows where it gets lost or counted twice, and separates the sales your ads were near from the sales your ads caused.</p>
+    <ul class="toc">
+      <li><a href="#s1"><b>1</b> The pixel</a></li>
+      <li><a href="#s2"><b>2</b> Conversions API</a></li>
+      <li><a href="#s3"><b>3</b> Match quality</a></li>
+      <li><a href="#s4"><b>4</b> Attribution windows</a></li>
+      <li><a href="#s5"><b>5</b> Counted is not caused</a></li>
+      <li><a href="#s6"><b>6</b> Lift tests</a></li>
+      <li><a href="#recap"><b>→</b> Five-line recap</a></li>
+    </ul>
+  </header>
+
+  <section class="step" id="s1">
+    <div class="copy">
+      <p class="stepno">Step 1 of 6</p>
+      <h2>How a sale reaches Meta: the pixel</h2>
+      <p>Meta can only count a sale it hears about. The Meta Pixel is a snippet of code on your site. When a visitor does something, it sends an event from their browser to Meta: PageView when a page loads, AddToCart when they add a product, Purchase when they buy.</p>
+      <p>Some of those events never arrive. Ad blockers stop the pixel, people close the tab before the thank-you page loads, and browsers limit what tracking code can do. The sale still happened. Meta just never heard about it.</p>
+      <p>Every purchase that goes missing makes your cost per sale look worse than it really is.</p>
+      <p class="data meta"><span class="label">Meta says</span><span>From 2025-09-02, custom conversions (results you define from your own events) that suggest a health condition or financial status are flagged and blocked from new campaigns.</span></p>
+      <p class="so"><span class="label">So</span><span>The pixel only sees what the browser lets it send. Some real sales never reach Meta.</span></p>
+    </div>
+    <figure class="stage">
+      <div class="stage-head"><span class="tag">Illustration · the losses are made up</span><div class="btns"><button class="btn" type="button" data-replay>Replay</button></div></div>
+      <canvas role="img" aria-label="Events travel from the browser to Meta in three lanes: PageView, AddToCart and Purchase. Some turn red and drop out on the way. In this illustration 10 of 14 page views, 5 of 7 add-to-carts and 3 of 4 purchases reach Meta."></canvas>
+    </figure>
+  </section>
+
+  <section class="step" id="s2">
+    <div class="copy">
+      <p class="stepno">Step 2 of 6</p>
+      <h2>The Conversions API, and counting once</h2>
+      <p>The Conversions API (CAPI) sends the same events from your server, the computer that runs your store, straight to Meta. It doesn’t run in the visitor’s browser, so the browser problems from step 1 don’t touch it.</p>
+      <p>Run both and Meta hears most purchases twice. To count each sale once, it deduplicates: when a browser event and a server event carry the same event ID and the same event name, and arrive within 48 hours, Meta keeps one.</p>
+      <p>Leave out the event ID and Meta can’t reliably pair them. In the worst case every sale both sides saw counts twice, so your cost per sale looks lower and your ROAS higher than they really are.</p>
+      <p class="data meta"><span class="label">Meta says</span><span>Run the Conversions API alongside the Pixel. Deduplication needs the pixel’s eventID to equal the server’s event_id, matching event names, and arrival within 48 hours. Without them, Meta falls back on the event name plus fbp and/or external_id, which works mainly when the browser event arrives first.</span></p>
+      <p class="data meta"><span class="label">Meta says</span><span>The Conversions API Gateway is a no-code setup from Events Manager that runs in your own cloud account and sets event_id automatically.</span></p>
+      <p class="so"><span class="label">So</span><span>Send purchases from the browser and the server, with the same event ID on both, so every sale counts exactly once.</span></p>
+    </div>
+    <figure class="stage">
+      <div class="stage-head"><span class="tag">Example numbers · 6 real sales</span><div class="btns" role="group" aria-label="Event ID"><button class="btn" type="button" data-id="1" aria-pressed="true">With event ID</button><button class="btn" type="button" data-id="0" aria-pressed="false">No event ID</button></div></div>
+      <canvas role="img" aria-label="Six real sales. The browser pixel reports four of them; the server reports all six. With a shared event ID, matching pairs merge and Meta counts 6 purchases. Without one, in the worst case Meta counts 10: four sales counted twice."></canvas>
+      <p class="formula" id="f2" aria-live="polite"></p>
+    </figure>
+  </section>
+
+  <section class="step" id="s3">
+    <div class="copy">
+      <p class="stepno">Step 3 of 6</p>
+      <h2>Match quality</h2>
+      <p>To credit a sale to an ad, Meta has to tie the event to a person with a Meta account. It does that with the customer details you send along with the event: an email address, a phone number, a click ID and so on. That’s matching.</p>
+      <p>Event Match Quality (EMQ) scores how well your events match, out of 10. Meta suggests 6.0 or higher. The score rises as more of your events carry customer details and as each one carries more of them.</p>
+      <p>Not every detail counts the same. Email and click ID are strong. Name, city and zip code are weak. Toggle them below. The meter is an illustration: its weights are made up to show the direction, not Meta’s formula.</p>
+      <p class="data meta"><span class="label">Meta says</span><span>EMQ is scored out of 10 from which customer details arrive, their quality, and the share of events matched to a Meta account. Meta suggests an EMQ of 6.0 or higher; the Help Center shows it as Poor, OK, Good or Great.</span></p>
+      <p class="data meta"><span class="label">Meta says</span><span>Email and click ID rate high as match keys; name, city and zip rate low.</span></p>
+      <p class="so"><span class="label">So</span><span>Send email and click ID with every purchase you can. Each detail you add helps Meta find the buyer behind the sale.</span></p>
+    </div>
+    <figure class="stage">
+      <div class="stage-head"><span class="tag">Illustration · made-up weights</span></div>
+      <canvas role="img" aria-label="A match-quality meter from 0 to 10 with a line at Meta’s suggested 6.0. Below it, a purchase event lists the customer details sent with it. Turning on email or click ID moves the meter a long way; name, city and zip code move it a little."></canvas>
+      <div class="btns" role="group" aria-label="Customer details sent with each purchase"><button class="btn" type="button" data-k="0" aria-pressed="true">Email</button><button class="btn" type="button" data-k="1" aria-pressed="false">Phone</button><button class="btn" type="button" data-k="2" aria-pressed="false">Click ID</button><button class="btn" type="button" data-k="3" aria-pressed="true">Name</button><button class="btn" type="button" data-k="4" aria-pressed="true">City</button><button class="btn" type="button" data-k="5" aria-pressed="true">Zip code</button></div>
+      <p class="formula" id="f3" aria-live="polite"></p>
+    </figure>
+  </section>
+
+  <section class="step" id="s4">
+    <div class="copy">
+      <p class="stepno">Step 4 of 6</p>
+      <h2>Attribution windows</h2>
+      <p>Attribution decides which sales Meta credits to an ad. The attribution setting is a window: how long after someone clicks or sees your ad a purchase still counts.</p>
+      <p>In Meta’s Insights API the default is 7-day click plus 1-day view. A purchase counts if it comes within 7 days of a click on the ad, or within 1 day of seeing it without clicking. Drag the purchase day and switch between a click and a view.</p>
+      <p>The rules changed in 2026. Check the dates below before you compare this year’s numbers with last year’s.</p>
+      <p class="data meta"><span class="label">Meta says</span><span>Since 2026-01-12, the 7-day view and 28-day view windows return no data in the Ads Insights API, on every version.</span></p>
+      <p class="data meta"><span class="label">Meta says</span><span>From late March 2026, click-through counts link clicks only. Conversions after shares, saves and other non-link clicks move to engaged view, renamed engage-through attribution. A video engaged view now takes 5 seconds instead of 10.</span></p>
+      <p class="data rep"><span class="label">Reported</span><span>A trade publication reports the windows still returned are 1-day click, 7-day click, 28-day click, 1-day engaged view and 1-day view.</span></p>
+      <p class="so"><span class="label">So</span><span>Every sale count comes with a window. Change the window and the number changes, even though the sales didn’t.</span></p>
+    </div>
+    <figure class="stage">
+      <div class="stage-head"><span class="tag">Meta says · windows · example sale</span><div class="btns" role="group" aria-label="What the buyer did"><button class="btn" type="button" data-mode="0" aria-pressed="true">Clicked</button><button class="btn" type="button" data-mode="1" aria-pressed="false">Only viewed</button></div></div>
+      <canvas role="img" aria-label="A timeline from day 0, when the person clicked or saw the ad, to day 14. Bars show each attribution window. A gold line marks the purchase day. Windows that reach the purchase count it. The 7-day view window is greyed out: no data in the API since 2026-01-12."></canvas>
+      <div class="sliders one">
+        <label for="d4"><span class="row"><span>Purchase day <em>· days after the ad</em></span><output id="od4" for="d4">3 days later</output></span><input id="d4" type="range" min="0" max="14" step="1" value="3"></label>
+      </div>
+      <p class="formula" id="f4" aria-live="polite"></p>
+    </figure>
+  </section>
+
+  <section class="step" id="s5">
+    <div class="copy">
+      <p class="stepno">Step 5 of 6</p>
+      <h2>Counted is not caused</h2>
+      <p>Attribution counts sales that happened near an ad. It can’t tell you which ones the ad caused. Some of those buyers were already on their way: they’d bought before, or they were going to search for you anyway.</p>
+      <p>Here 100 people saw or clicked an ad and bought inside the window, so Meta counts 100 sales for $4,000 of ads: $40 a sale. Suppose 60 would have bought anyway. Only 40 bought because of the ad, so each extra sale really cost $4,000 ÷ 40 = $100.</p>
+      <p>Slide the share who would have bought anyway. Ads Manager’s number never moves. The real cost does.</p>
+      <p class="data meta"><span class="label">Meta says</span><span>Meta’s lift glossary defines incremental conversions as those a test estimates the ads caused.</span></p>
+      <p class="data rep"><span class="label">Reported</span><span>Practitioners report that Meta’s incremental attribution setting credits only conversions Meta estimates would not have happened without the ad, needs a Maximize conversions or value goal, applies to website Sales campaigns, excludes bid controls and is locked after launch.</span></p>
+      <p class="so"><span class="label">So</span><span>A counted sale is not a caused sale. The gap between them is the part of your results the ads didn’t earn.</span></p>
+    </div>
+    <figure class="stage">
+      <div class="stage-head"><span class="tag">Example numbers · 100 counted sales</span><div class="btns"><button class="btn" type="button" data-replay>Replay</button></div></div>
+      <canvas role="img" aria-label="100 counted buyers split into two groups: 60 who would have bought anyway and 40 who bought because of the ad. Ads Manager shows $4,000 ÷ 100 = $40 a sale. The real cost of each extra sale is $4,000 ÷ 40 = $100."></canvas>
+      <div class="sliders one">
+        <label for="a5"><span class="row"><span>Would have bought anyway</span><output id="oa5" for="a5">60 of 100</output></span><input id="a5" type="range" min="0" max="90" step="10" value="60"></label>
+      </div>
+    </figure>
+  </section>
+
+  <section class="step" id="s6">
+    <div class="copy">
+      <p class="stepno">Step 6 of 6</p>
+      <h2>Lift tests</h2>
+      <p>To measure what your ads caused, run an experiment. Split people at random into two groups. The test group can see your ads; the control group doesn’t. Whatever the test group buys beyond the control group is the lift: the sales the ads caused.</p>
+      <p>Because the split is random, the ads are the only difference between the groups. Slide the true lift, then press Run again. The measured gap bounces around the truth because each group is a sample. Switch to a small test and the bounce gets bigger, big enough to show a lift that isn’t there or hide one that is.</p>
+      <p class="data meta"><span class="label">Meta says</span><span>Incrementality experiments such as Conversion Lift are the best way to tell whether ads caused conversions. Where attribution and lift results disagree, calibrate attribution against the lift results.</span></p>
+      <p class="data rep"><span class="label">Reported</span><span>GeoLift is Meta’s open-source R package for tests run by region, and Robyn is Meta’s open-source marketing mix model, calibrated with lift and geo results. A practitioner guide advises running GeoLift’s power analysis first and planning for a 5–10% detectable effect, 4–8 weeks and 80% power.</span></p>
+      <p class="do"><span class="label">Check yours</span><span>In Events Manager, find your Purchase event’s Event Match Quality and compare it with Meta’s suggested 6.0. Then confirm your browser and server purchase events carry the same event ID.</span></p>
+      <p class="so"><span class="label">So</span><span>Attribution tells you what Meta counted. A lift test with a random control group tells you what your ads added.</span></p>
+    </div>
+    <figure class="stage">
+      <div class="stage-head"><span class="tag">Example numbers · a lift test</span><div class="btns"><button class="btn primary" type="button" id="run6">Run again</button><span class="btns" role="group" aria-label="Test size"><button class="btn" type="button" data-size="1" aria-pressed="true">Big test</button><button class="btn" type="button" data-size="0" aria-pressed="false">Small test</button></span></div></div>
+      <canvas role="img" aria-label="Two bars: buyers in the control group, who see no ads, and buyers in the test group, who do. The test bar’s extra length is the measured lift. A dashed line marks the true lift. Below, measured lift against true lift and how far this size of test can bounce."></canvas>
+      <div class="sliders one">
+        <label for="l6"><span class="row"><span>True lift <em>· extra sales the ads cause</em></span><output id="ol6" for="l6">+20%</output></span><input id="l6" type="range" min="0" max="40" step="1" value="20"></label>
+      </div>
+      <p class="formula" id="f6" aria-live="polite"></p>
+    </figure>
+  </section>
+
+  <section class="recap" id="recap">
+    <p class="eyebrow">The whole thing</p>
+    <h2>Five lines to remember</h2>
+    <ol>
+      <li><span>The pixel reports sales from the visitor’s browser, and some of them never arrive.</span></li>
+      <li><span>The Conversions API sends the same events from your server, and a shared event ID lets Meta count each sale once.</span></li>
+      <li><span>Event Match Quality is scored out of 10, Meta suggests 6.0 or higher, and email and click ID count for the most.</span></li>
+      <li><span>A sale counts only inside the attribution window, and the Insights API default is 7-day click plus 1-day view.</span></li>
+      <li><span>Counted is not caused, and only a test with a random control group measures what your ads added.</span></li>
+    </ol>
+  </section>
+
+  <footer class="sources">
+    <h3>Where the numbers come from</h3>
+    <ul>
+      <li><b>Example numbers</b> and <b>Illustrations</b> are made up so the ideas are easy to see: the events lost in step 1, the 6 sales and $600 in step 2, the match-quality weights in step 3, the 100 buyers and $4,000 in step 5, and the test groups in step 6.</li>
+      <li>Pixel, Conversions API and deduplication: <a href="https://developers.facebook.com/docs/marketing-api/conversions-api/deduplicate-pixel-and-server-events/">Meta, “Deduplicate pixel and server events”</a>. Gateway: <a href="https://developers.facebook.com/documentation/ads-commerce/gateway-products/conversions-api-gateway">Meta, Conversions API Gateway</a> (updated 2026-04-30).</li>
+      <li>Event Match Quality: <a href="https://developers.facebook.com/docs/marketing-api/conversions-api/dataset-quality-api/">Dataset Quality API</a>; the 6.0 suggestion and the Poor, OK, Good, Great labels: <a href="https://developers.facebook.com/documentation/ads-commerce/conversions-api/verifying-setup.md">Verifying your setup</a>; how EMQ rises: <a href="https://en-gb.facebook.com/business/help/308855623839366">Meta Business Help Center</a>; strong and weak match keys: <a href="https://developers.secure.facebook.com/documentation/ads-commerce/conversions-api/guides/gtm-server-side">Meta, server-side GTM guide</a>.</li>
+      <li>Attribution: the default 7-day click plus 1-day view, <a href="https://developers.facebook.com/docs/graph-api/reference/adgroup/insights/">Ad insights reference</a>, v25.0, released 2026-02-18. View windows returning no data since 2026-01-12: <a href="https://developers.facebook.com/docs/marketing-api/out-of-cycle-changes/occ-2025">Marketing API out-of-cycle changes 2025</a>, entry 2025-10-13. Link clicks only, engage-through attribution and the 5-second engaged view: <a href="https://www.facebook.com/business/news/click-attribution">Meta for Business news</a>, 2026-03-03. Reported: windows still returned, <a href="https://ppc.land/meta-restricts-attribution-windows-and-data-retention-in-ads-insights-api/">PPC Land</a>, 2025-10-18.</li>
+      <li>Incremental attribution, reported: <a href="https://www.logicalposition.com/blog/beyond-last-click-breaking-down-metas-incremental-attribution">Logical Position</a> and <a href="https://adsuploader.com/blog/meta-incremental-attribution">AdsUploader</a>. Its launch date and the widely repeated lift figure have no Meta source, so they are left out.</li>
+      <li>Incrementality: Conversion Lift as the best way, <a href="https://www.facebook.com/business/news/click-attribution">Meta for Business news</a>, 2026-03-03; calibrating attribution with lift, <a href="https://www.facebook.com/business/industries/b2b/measurement/solutions">Meta measurement solutions</a>; incremental conversions defined, <a href="https://www.facebook.com/business/help/1092662031214127">Meta lift glossary</a>. Reported: GeoLift and Robyn, <a href="https://blckalpaca.at/en/knowledge-base/social-media/paid-social-performance-marketing/conversion-lift-meta-tiktok-platform-lift-tests">practitioner guide</a>.</li>
+      <li>Health and financial custom conversions: <a href="https://developers.secure.facebook.com/docs/marketing-api/reference/custom-conversion/">Custom conversion reference</a>.</li>
+    </ul>
+  </footer>
+
+<!-- pager -->
+<nav class="pager" aria-label="Lessons">
+<a class="prev" href="../testing/"><small>← Lesson 9</small><span>Testing without fooling yourself</span></a>
+<a class="next" href="../weekly-playbook/"><small>Lesson 11 →</small><span>The weekly playbook</span></a>
+</nav>
+<!-- /pager -->
+</main>
+<!-- foot -->
+<footer class="foot"><div class="foot-in">
+<p>Written by <b>Brett Friedman</b> · <a href="https://thecreativestrategyagency.com/">The Creative Strategy Agency</a>.</p>
+<p>Learn Meta Ads is an independent guide. It is not affiliated with or endorsed by Meta Platforms, Inc.</p>
+</div></footer>
+<!-- /foot -->
+<script src="../assets/engine.js"></script>
+<script>
+(() => {
+'use strict';
+const {C, TAU, clamp, seg, easeIO, easeOut, lerp, rng, shuffle, rrect, txt, measure, arrow, money, num, scene} = LMA;
+
+/* ---------- 1 · the pixel ---------- */
+const LANES1 = [
+  {n:'PageView', k:14, lost:new Set([2, 6, 9, 12]), drop:{2:.32, 6:.58, 9:.45, 12:.7}, y:82},
+  {n:'AddToCart', k:7, lost:new Set([1, 4]), drop:{1:.4, 4:.62}, y:150},
+  {n:'Purchase', k:4, lost:new Set([2]), drop:{2:.5}, y:218, gold:true}
+];
+scene('s1', {H:300, dur:5.4, draw(ctx, t){
+  const BX = 16, BW = 84, MX = 300, MW = 84, Y0 = 30, Y1 = 262, XA = BX + BW + 4, XB = MX - 4;
+  for (const [x, w, n] of [[BX, BW, 'Browser'], [MX, MW, 'Meta']]){
+    rrect(ctx, x, Y0, w, Y1 - Y0, 10); ctx.fillStyle = C.surface; ctx.fill(); ctx.lineWidth = 1.5; ctx.strokeStyle = C.line; ctx.stroke();
+    txt(ctx, n, x + w / 2, Y0 + 20, {size:13, w:850, align:'center'});
+  }
+  LANES1.forEach((L, li) => {
+    txt(ctx, L.n, BX + BW / 2, L.y + 4, {size:11.5, w:750, align:'center', color:C.muted});
+    ctx.strokeStyle = C.line; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(XA, L.y); ctx.lineTo(XB, L.y); ctx.stroke();
+    let arrived = 0;
+    for (let i = 0; i < L.k; i++){
+      const t0 = .3 + li * .25 + i * (2.6 / L.k), p = seg(t, t0, t0 + 1.1), col = L.gold ? C.win : C.you;
+      if (p <= 0) continue;
+      if (L.lost.has(i)){
+        const dp = L.drop[i], x = lerp(XA, XB, Math.min(p, dp));
+        if (p < dp){ ctx.beginPath(); ctx.arc(x, L.y, 4, 0, TAU); ctx.fillStyle = col; ctx.fill(); continue; }
+        const f = seg(t, t0 + dp * 1.1, t0 + dp * 1.1 + .3), y = L.y + 14 * easeOut(f);
+        ctx.save(); ctx.strokeStyle = C.loss; ctx.lineWidth = 2; ctx.beginPath();
+        ctx.moveTo(x - 4, y - 4); ctx.lineTo(x + 4, y + 4); ctx.moveTo(x + 4, y - 4); ctx.lineTo(x - 4, y + 4); ctx.stroke(); ctx.restore();
+        continue;
+      }
+      if (p < 1){ ctx.beginPath(); ctx.arc(lerp(XA, XB, p), L.y, 4, 0, TAU); ctx.fillStyle = col; ctx.fill(); continue; }
+      const j = arrived++;
+      ctx.beginPath(); ctx.arc(MX + 15 + (j % 6) * 11, L.y - 7 + Math.floor(j / 6) * 11, 4, 0, TAU); ctx.fillStyle = col; ctx.fill();
+    }
+    const total = L.k - L.lost.size, a = seg(t, 4.4, 4.9);
+    txt(ctx, total + ' of ' + L.k, MX + MW / 2, L.y + 32, {size:12.5, w:800, align:'center', alpha:a});
+  });
+  txt(ctx, 'Lost: ad blockers, closed tabs, browser limits', 200, 288, {size:12, w:650, align:'center', color:C.muted, alpha:seg(t, 4.6, 5.1)});
+}});
+
+/* ---------- 2 · CAPI and dedup ---------- */
+const LOST2 = new Set([1, 4]);
+const st2 = {id:1};
+const s2 = scene('s2', {H:300, dur:3.2, draw(ctx, t){
+  const cx = i => 158 + i * 42, YB = 62, YS = 110, YM = 178;
+  txt(ctx, 'Sale', 16, 26, {size:12.5, w:700, color:C.muted});
+  for (let i = 0; i < 6; i++) txt(ctx, '#' + (i + 1), cx(i), 26, {size:12.5, w:750, align:'center', color:C.muted});
+  txt(ctx, 'Browser pixel', 16, YB + 4.5, {size:12.5, w:750});
+  txt(ctx, 'Server (CAPI)', 16, YS + 4.5, {size:12.5, w:750});
+  txt(ctx, 'Meta counts', 16, YM + 4.5, {size:12.5, w:750});
+  ctx.strokeStyle = C.line; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(16, YS + 26); ctx.lineTo(384, YS + 26); ctx.stroke();
+  const m = easeIO(seg(t, 1.5, 2.3)), fade = 1 - .6 * m;
+  let count = 0;
+  for (let i = 0; i < 6; i++){
+    const x = cx(i), pb = easeOut(seg(t, .1 + i * .1, .4 + i * .1)), ps = easeOut(seg(t, .6 + i * .1, .9 + i * .1)), lost = LOST2.has(i);
+    if (lost && pb > 0){
+      ctx.save(); ctx.globalAlpha = pb; ctx.strokeStyle = C.loss; ctx.lineWidth = 2; ctx.beginPath();
+      ctx.moveTo(x - 6, YB - 6); ctx.lineTo(x + 6, YB + 6); ctx.moveTo(x + 6, YB - 6); ctx.lineTo(x - 6, YB + 6); ctx.stroke(); ctx.restore();
+    }
+    if (!lost && pb > 0){ ctx.save(); ctx.globalAlpha = fade; ctx.beginPath(); ctx.arc(x, YB, 9 * pb, 0, TAU); ctx.fillStyle = C.you; ctx.fill(); ctx.restore(); }
+    if (ps > 0){ ctx.save(); ctx.globalAlpha = fade; ctx.beginPath(); ctx.arc(x, YS, 9 * ps, 0, TAU); ctx.fillStyle = C.alt; ctx.fill(); ctx.restore(); }
+    if (m <= 0) continue;
+    const two = !lost && !st2.id;
+    const ys = two ? YM - 12 : YM, yb = two ? YM + 14 : YM;
+    if (!lost){ ctx.beginPath(); ctx.arc(x, lerp(YB, yb, m), 9, 0, TAU); ctx.fillStyle = C.win; ctx.fill(); if (two && m > .9){ ctx.lineWidth = 2.5; ctx.strokeStyle = C.loss; ctx.stroke(); } }
+    ctx.beginPath(); ctx.arc(x, lerp(YS, ys, m), 9, 0, TAU); ctx.fillStyle = C.win; ctx.fill(); ctx.lineWidth = 1.2; ctx.strokeStyle = C.ink; ctx.stroke();
+    count += two ? 2 : 1;
+  }
+  const f = seg(t, 2.4, 2.9), dup = !st2.id;
+  txt(ctx, `Meta counts ${dup ? 10 : 6} purchases`, 16, 236, {size:17, w:860, color:dup ? C.loss : C.ink, alpha:f});
+  txt(ctx, dup ? '6 real sales. 4 of them counted twice.' : '6 real sales, each counted once.', 16, 260, {size:12.5, w:650, color:C.muted, alpha:f});
+  txt(ctx, dup ? 'On $600 of ads: $60 a sale on paper. The real cost is $100.' : 'On $600 of ads: $100 a sale, the real cost.', 16, 284, {size:12.5, w:650, color:C.muted, alpha:f});
+}});
+const BTN2 = [...document.querySelectorAll('#s2 [data-id]')];
+const WHY2 = [
+  'No event ID: Meta can’t reliably pair the browser and server copies. In the worst case, the 4 sales both sides saw count twice: <strong>10</strong> purchases from 6 real sales.',
+  'With event ID: each browser and server pair shares an ID and an event name, so Meta keeps one. <strong>6</strong> purchases from 6 real sales, including the 2 the browser lost.'
+];
+function pick2(v, animate){
+  st2.id = v;
+  BTN2.forEach(b => b.setAttribute('aria-pressed', String(+b.dataset.id === v)));
+  document.getElementById('f2').innerHTML = WHY2[v];
+  if (animate) s2.play(1.2); else s2.render();
+}
+BTN2.forEach(b => b.addEventListener('click', () => pick2(+b.dataset.id, true)));
+pick2(1, false);
+
+/* ---------- 3 · match quality ---------- */
+const KEYS3 = [['Email', 2.6], ['Phone', 1.6], ['Click ID', 2.4], ['Name', .5], ['City', .4], ['Zip code', .5]];
+const st3 = {on:[true, false, false, true, true, true], from:5};
+const score3 = () => Math.min(10, 1 + KEYS3.reduce((a, k, i) => a + (st3.on[i] ? k[1] : 0), 0));
+const s3 = scene('s3', {H:250, dur:.7, rest:.7, autoplay:false, draw(ctx, t){
+  const v = lerp(st3.from, score3(), easeOut(seg(t, 0, .6))), ok = v >= 6 - 1e-9, col = ok ? C.you : C.loss;
+  txt(ctx, 'Event Match Quality', 16, 22, {size:12.5, w:650, color:C.muted});
+  const s = v.toFixed(1);
+  txt(ctx, s, 16, 60, {size:34, w:860, color:col});
+  txt(ctx, '/ 10', 16 + measure(ctx, s, 34, 860) + 8, 60, {size:15, w:750, color:C.muted});
+  txt(ctx, ok ? 'At or above 6.0' : 'Under the suggested 6.0', 384, 60, {size:13, w:800, color:col, align:'right'});
+  const X = 16, W = 368, y = 76, h = 22;
+  rrect(ctx, X, y, W, h, 6); ctx.fillStyle = C.line; ctx.fill();
+  rrect(ctx, X, y, Math.max(6, v / 10 * W), h, 6); ctx.fillStyle = col; ctx.fill();
+  const mx = X + .6 * W;
+  ctx.fillStyle = C.ink; ctx.fillRect(mx - 1.5, y - 6, 3, h + 12);
+  txt(ctx, 'Meta suggests 6.0+', mx, y + h + 22, {size:12, w:750, align:'center'});
+  txt(ctx, '0', X, y + h + 22, {size:11.5, w:650, color:C.muted});
+  txt(ctx, '10', X + W, y + h + 22, {size:11.5, w:650, color:C.muted, align:'right'});
+  rrect(ctx, 16, 134, 368, 108, 10); ctx.fillStyle = C.surface; ctx.fill(); ctx.lineWidth = 1; ctx.strokeStyle = C.line; ctx.stroke();
+  txt(ctx, 'Purchase event · customer details sent with it', 28, 156, {size:12.5, w:750});
+  KEYS3.forEach((k, i) => {
+    const cx = 28 + (i % 3) * 116, cy = 170 + Math.floor(i / 3) * 34, on = st3.on[i];
+    rrect(ctx, cx, cy, 108, 26, 7);
+    if (on){ ctx.fillStyle = C.yousoft; ctx.fill(); ctx.lineWidth = 1.5; ctx.strokeStyle = C.you; ctx.stroke(); }
+    else { ctx.save(); ctx.setLineDash([3, 3]); ctx.lineWidth = 1; ctx.strokeStyle = C.muted; ctx.stroke(); ctx.restore(); }
+    txt(ctx, (on ? '✓ ' : '+ ') + k[0], cx + 10, cy + 17.5, {size:12.5, w:on ? 800 : 650, color:on ? C.ink : C.muted});
+  });
+}});
+const BTN3 = [...document.querySelectorAll('#s3 [data-k]')];
+function upd3(animate){
+  BTN3.forEach(b => b.setAttribute('aria-pressed', String(st3.on[+b.dataset.k])));
+  const names = KEYS3.filter((k, i) => st3.on[i]).map(k => k[0] === 'Click ID' ? 'click ID' : k[0].toLowerCase()), v = score3();
+  const list = names.length ? names.length > 1 ? names.slice(0, -1).join(', ') + ' and ' + names[names.length - 1] : names[0] : 'no customer details';
+  document.getElementById('f3').innerHTML = `Sending ${list}: an illustrative <strong>${v.toFixed(1)}</strong> out of 10. ` + (v >= 6 ? 'That clears Meta’s suggested 6.0.' : (!st3.on[0] || !st3.on[2] ? `Add ${!st3.on[0] ? 'email' : 'click ID'} to make the biggest jump.` : 'Add more details.'));
+  if (animate) s3.play(0); else s3.still();
+}
+BTN3.forEach(b => b.addEventListener('click', () => { st3.from = lerp(st3.from, score3(), easeOut(seg(s3.t, 0, .6))); const k = +b.dataset.k; st3.on[k] = !st3.on[k]; upd3(true); }));
+st3.from = score3(); upd3(false);
+
+/* ---------- 4 · attribution windows ---------- */
+const st4 = {mode:0, d:3};
+const ROWS4 = [
+  [{n:'1-day click', N:1}, {n:'7-day click', N:7, def:true}],
+  [{n:'1-day view', N:1, def:true}, {n:'7-day view', N:7, dead:true}]
+];
+const later = d => d === 0 ? 'the same day' : d === 1 ? '1 day later' : d + ' days later';
+const head4 = (m, d) => d === 0 ? (m ? 'Bought the same day they saw the ad' : 'Bought the same day as the click') : `Bought ${d} day${d > 1 ? 's' : ''} after ${m ? 'seeing the ad, no click' : 'the click'}`;
+const s4 = scene('s4', {H:290, dur:.9, rest:.9, autoplay:false, draw(ctx, t){
+  const X0 = 136, X1 = 372, K = (X1 - X0) / 14, AY = 64, d = st4.d, mode = st4.mode, rows = ROWS4[mode], a = easeOut(seg(t, 0, .6));
+  txt(ctx, head4(mode, d), 16, 22, {size:14, w:800});
+  ctx.strokeStyle = C.muted; ctx.lineWidth = 1.5; ctx.beginPath(); ctx.moveTo(X0, AY); ctx.lineTo(X1, AY); ctx.stroke();
+  [[0, 'day 0'], [1, ''], [7, 'day 7'], [14, 'day 14']].forEach(([v, l]) => { const x = X0 + v * K; ctx.fillStyle = C.muted; ctx.fillRect(x - .75, AY - 4, 1.5, 8); if (l) txt(ctx, l, v === 14 ? 384 : x, AY + 20, {size:11.5, w:650, color:C.muted, align:v === 14 ? 'right' : 'center'}); });
+  ctx.beginPath(); ctx.arc(X0, AY, 6, 0, TAU); ctx.fillStyle = C.you; ctx.fill();
+  txt(ctx, mode ? 'ad seen' : 'ad clicked', X0 - 14, AY + 4.5, {size:12.5, w:800, color:C.you, align:'right'});
+  let def = false;
+  rows.forEach((r, i) => {
+    const y = 112 + i * 52, inside = d <= r.N && !r.dead;
+    if (r.def && inside) def = true;
+    txt(ctx, r.n, 16, y + 4.5, {size:12.5, w:750, color:r.dead ? C.muted : C.ink});
+    if (r.def) txt(ctx, 'in the default', 16, y + 22, {size:11.5, w:700, color:C.you});
+    rrect(ctx, X0, y - 9, r.N * K, 18, 5);
+    if (r.dead){
+      ctx.save(); ctx.setLineDash([3, 3]); ctx.strokeStyle = C.muted; ctx.lineWidth = 1; ctx.stroke(); ctx.restore();
+      txt(ctx, 'no API data', X0 + r.N * K + 8, y + 4.5, {size:11.5, w:700, color:C.muted});
+      txt(ctx, 'since 2026-01-12', X0, y + 28, {size:11.5, w:650, color:C.muted});
+    }
+    else { ctx.fillStyle = inside ? C.yousoft : C.faint; ctx.fill(); }
+    const mx = 118;
+    ctx.beginPath(); ctx.arc(mx, y, 8, 0, TAU);
+    if (inside){ ctx.fillStyle = C.win; ctx.fill(); txt(ctx, '✓', mx, y + 4.5, {size:12, w:850, color:C.onwin, align:'center'}); }
+    else { ctx.lineWidth = 1.5; ctx.strokeStyle = C.muted; ctx.stroke(); txt(ctx, '×', mx, y + 4.5, {size:13, w:700, color:C.muted, align:'center'}); }
+  });
+  const px = X0 + d * K;
+  ctx.save(); ctx.globalAlpha = a; ctx.strokeStyle = C.win; ctx.lineWidth = 3; ctx.beginPath(); ctx.moveTo(px, AY); ctx.lineTo(px, AY + 6); ctx.moveTo(px, AY + 27); ctx.lineTo(px, 174); ctx.stroke();
+  ctx.beginPath(); ctx.arc(px, AY, 7, 0, TAU); ctx.fillStyle = C.win; ctx.fill(); ctx.lineWidth = 1.5; ctx.strokeStyle = C.ink; ctx.stroke(); ctx.restore();
+  txt(ctx, 'purchase', clamp(px, X0 + 26, X1 - 26), AY - 14, {size:11.5, w:750, align:'center'});
+  const f = seg(t, .3, .8);
+  txt(ctx, `7-day click + 1-day view: ${def ? 'counted' : 'not counted'}`, 16, 236, {size:14, w:850, color:def ? C.ink : C.loss, alpha:f});
+  txt(ctx, mode ? 'A video engaged view now takes 5 seconds, not 10.' : 'From late March 2026, only link clicks count as clicks.', 16, 260, {size:12, w:650, color:C.muted, alpha:f});
+  txt(ctx, mode ? 'Views beyond 1 day: no API data since 2026-01-12.' : 'A sale after a save or share moves to engaged view.', 16, 282, {size:12, w:650, color:C.muted, alpha:f});
+}});
+const BTN4 = [...document.querySelectorAll('#s4 [data-mode]')], IN4 = document.getElementById('d4');
+function set4(next, animate){
+  Object.assign(st4, next);
+  IN4.value = st4.d; document.getElementById('od4').textContent = later(st4.d);
+  BTN4.forEach(b => b.setAttribute('aria-pressed', String(+b.dataset.mode === st4.mode)));
+  const d = st4.d;
+  document.getElementById('f4').innerHTML = st4.mode
+    ? `Seen, not clicked, bought ${later(d)}: ${d <= 1 ? 'inside the 1-day view window, so the default setting <strong>counts it</strong>.' : 'outside the 1-day view window, so the default setting <strong>doesn’t count it</strong>.'}`
+    : `Clicked, bought ${later(d)}: ${d <= 7 ? 'inside the 7-day click window, so the default setting <strong>counts it</strong>.' : 'past the 7-day click window, so the default setting <strong>doesn’t count it</strong>.'}`;
+  if (animate) s4.play(0); else s4.still();
+}
+IN4.addEventListener('input', e => set4({d:+e.target.value}, false));
+BTN4.forEach(b => b.addEventListener('click', () => set4({mode:+b.dataset.mode}, true)));
+set4({}, false);
+
+/* ---------- 5 · counted is not caused ---------- */
+const ORD5 = shuffle([...Array(100).keys()], rng(31));
+const RANK5 = new Array(100); ORD5.forEach((b, k) => { RANK5[b] = k; });
+const st5 = {any:60};
+const s5 = scene('s5', {H:300, dur:2.6, draw(ctx, t){
+  const any = st5.any, cz = 100 - any;
+  txt(ctx, 'Meta counts 100 sales from $4,000 of ads', 16, 20, {size:13, w:750});
+  const hd = seg(t, 1.4, 1.9);
+  for (const [x, lab, n] of [[16, 'bought anyway', any], [208, 'because of the ad', cz]]){
+    rrect(ctx, x, 32, 176, 168, 10); ctx.fillStyle = C.surface; ctx.fill(); ctx.lineWidth = 1; ctx.strokeStyle = C.line; ctx.stroke();
+    txt(ctx, n + ' ' + lab, x + 12, 52, {size:12.5, w:800, alpha:hd, color:x > 100 ? C.ink : C.muted});
+  }
+  let ia = 0, ic = 0;
+  for (let b = 0; b < 100; b++){
+    const k = RANK5[b], isA = k < any, j = isA ? ia++ : ic++;
+    const sx = 27 + (b % 20) * 18, sy = 86 + Math.floor(b / 20) * 20;
+    const bx = isA ? 16 : 208, tx = bx + 22 + (j % 10) * 15.2, ty = 72 + Math.floor(j / 10) * 13;
+    const p = easeIO(seg(t, .5 + (b % 20) * .03, 1.3 + (b % 20) * .03));
+    const x = lerp(sx, tx, p), y = lerp(sy, ty, p);
+    ctx.beginPath(); ctx.arc(x, y, 4.5, 0, TAU);
+    if (p > .5 && isA){ ctx.fillStyle = C.faint; ctx.fill(); ctx.lineWidth = 1; ctx.strokeStyle = C.muted; ctx.stroke(); }
+    else { ctx.fillStyle = C.win; ctx.fill(); }
+  }
+  const f = seg(t, 1.9, 2.4);
+  txt(ctx, 'Ads Manager: $4,000 ÷ 100 = $40 a sale', 16, 228, {size:13, w:750, alpha:f});
+  txt(ctx, `Each extra sale cost $4,000 ÷ ${cz} = ${money(4000 / cz)}`, 16, 254, {size:15, w:850, color:C.you, alpha:f});
+  txt(ctx, 'Attribution can’t see which group a buyer is in.', 16, 280, {size:12.5, w:650, color:C.muted, alpha:f});
+}});
+const IN5 = document.getElementById('a5');
+const CV5 = document.querySelector('#s5 canvas');
+IN5.addEventListener('input', e => {
+  st5.any = +e.target.value; const cz = 100 - st5.any;
+  document.getElementById('oa5').textContent = st5.any + ' of 100';
+  CV5.setAttribute('aria-label', `100 counted buyers split into two groups: ${st5.any} who would have bought anyway and ${cz} who bought because of the ad. Ads Manager shows $4,000 ÷ 100 = $40 a sale. The real cost of each extra sale is $4,000 ÷ ${cz} = ${money(4000 / cz)}.`);
+  s5.still();
+});
+
+/* ---------- 6 · lift tests ---------- */
+const Z6 = [-.6, 1.1, -1.4, .3, 1.8, -.2, .9, -1.9];
+const st6 = {lift:20, big:1, run:0};
+const calc6 = () => {
+  const n = st6.big ? 50000 : 5000, c = n * .02, se = Math.sqrt(2 * c) / c * 100, m = st6.lift + Z6[st6.run % Z6.length] * se;
+  return {n, c, se, m, tb:Math.round(c * (1 + m / 100))};
+};
+const pct = v => (v < 0 ? '−' : '+') + Math.abs(Math.round(v)) + '%';
+const s6 = scene('s6', {H:290, dur:1.6, draw(ctx, t){
+  const r = calc6(), X = 16, MAXR = 1.75, K = 368 / MAXR, g = easeOut(seg(t, 0, .8)), f = seg(t, .8, 1.3);
+  txt(ctx, `Each group: ${num(r.n)} people. Control buys at 2%.`, 16, 20, {size:13, w:750});
+  txt(ctx, 'Control · no ads', 16, 48, {size:12.5, w:750, color:C.muted});
+  const cw = K * g;
+  rrect(ctx, X, 56, cw, 28, 6); ctx.fillStyle = C.alt; ctx.fill();
+  txt(ctx, num(r.c) + ' buyers', 384, 48, {size:13, w:800, align:'right', alpha:f});
+  txt(ctx, 'Test · sees your ads', 16, 112, {size:12.5, w:750, color:C.muted});
+  const tw = K * (1 + r.m / 100) * g;
+  rrect(ctx, X, 120, Math.max(6, Math.min(tw, cw)), 28, 6); ctx.fillStyle = C.you; ctx.fill();
+  if (tw > cw){ rrect(ctx, X + cw, 120, tw - cw, 28, [0, 6, 6, 0]); ctx.fillStyle = C.win; ctx.fill(); }
+  txt(ctx, num(r.tb) + ' buyers', 384, 112, {size:13, w:800, align:'right', alpha:f});
+  const lx = X + K * (1 + st6.lift / 100);
+  ctx.save(); ctx.globalAlpha = f; ctx.setLineDash([4, 3]); ctx.strokeStyle = C.ink; ctx.lineWidth = 2; ctx.beginPath(); ctx.moveTo(lx, 114); ctx.lineTo(lx, 156); ctx.stroke(); ctx.restore();
+  const lab = 'true lift ' + pct(st6.lift), lw = measure(ctx, lab, 12, 750);
+  txt(ctx, lab, clamp(lx - lw / 2, 16, 384 - lw), 172, {size:12, w:750, alpha:f});
+  txt(ctx, 'Measured lift', 16, 200, {size:12.5, w:650, color:C.muted, alpha:f});
+  txt(ctx, pct(r.m), 16, 230, {size:28, w:860, color:C.you, alpha:f});
+  txt(ctx, 'True lift', 384, 200, {size:12.5, w:650, color:C.muted, align:'right', alpha:f});
+  txt(ctx, pct(st6.lift), 384, 230, {size:28, w:860, align:'right', alpha:f});
+  txt(ctx, `A test this size bounces about ±${Math.round(2 * r.se)} points.`, 16, 256, {size:12.5, w:650, color:C.muted, alpha:f});
+  const clear = Math.abs(r.m) >= 2 * r.se;
+  txt(ctx, clear ? (r.m > 0 ? 'Clearly above zero: the ads added sales.' : 'Clearly below zero.') : 'Too close to zero to call. Run a bigger test.', 16, 278, {size:12.5, w:750, color:clear ? C.ink : C.loss, alpha:f});
+}});
+const IN6 = document.getElementById('l6'), BTN6 = [...document.querySelectorAll('#s6 [data-size]')];
+function upd6(animate){
+  const r = calc6();
+  IN6.value = st6.lift; document.getElementById('ol6').textContent = pct(st6.lift);
+  BTN6.forEach(b => b.setAttribute('aria-pressed', String(+b.dataset.size === st6.big)));
+  document.getElementById('f6').innerHTML = `Run ${st6.run + 1}: control ${num(r.c)} buyers, test ${num(r.tb)}. Measured lift <strong>${pct(r.m)}</strong> against a true ${pct(st6.lift)}. A ${st6.big ? 'big' : 'small'} test bounces about ±${Math.round(2 * r.se)} points.`;
+  if (animate) s6.play(0); else s6.still();
+}
+IN6.addEventListener('input', e => { st6.lift = +e.target.value; upd6(false); });
+document.getElementById('run6').addEventListener('click', () => { st6.run++; upd6(true); });
+BTN6.forEach(b => b.addEventListener('click', () => { st6.big = +b.dataset.size; upd6(true); }));
+upd6(false);
+})();
+</script>
+</body>
+</html>

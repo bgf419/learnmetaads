@@ -1,0 +1,593 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- head -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Testing without fooling yourself · Lesson 9 · Learn Meta Ads</title>
+<meta name="description" content="Small numbers lie. How much data a verdict needs, and simple rules for cutting and keeping ads.">
+<link rel="canonical" href="https://learnmetaads.com/testing/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Learn Meta Ads">
+<meta property="og:title" content="Testing without fooling yourself · Lesson 9 · Learn Meta Ads">
+<meta property="og:description" content="Small numbers lie. How much data a verdict needs, and simple rules for cutting and keeping ads.">
+<meta property="og:url" content="https://learnmetaads.com/testing/">
+<meta property="og:image" content="https://learnmetaads.com/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F1F3F7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0D1016" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Recursive:slnt,wght,CASL,CRSV,MONO@-15..0,300..1000,0..1,0..1,0..1&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+<script>try{var t=localStorage.getItem('lma-theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t}catch(e){}</script>
+<!-- /head -->
+<style>@media (max-width:600px){.tbl.log table,.tbl.log tbody,.tbl.log tr,.tbl.log td{display:block}.tbl.log table{min-width:0}.tbl.log thead{display:none}.tbl.log tr{padding:10px 0;border-bottom:1px solid var(--line)}.tbl.log td{display:grid;grid-template-columns:7.5em 1fr;gap:10px;border:0;padding:3px 0}.tbl.log td::before{content:attr(data-k);font-family:var(--mono);font-variation-settings:"MONO" 1;font-size:12px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);font-weight:600;padding-top:2px}.tbl.log td:first-child{font-weight:700}}</style>
+</head>
+<body>
+<!-- bar -->
+<header class="bar"><div class="bar-in">
+<a class="mark" href="../"><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><rect x="1" y="1" width="20" height="20" rx="5" style="fill:var(--you)"/><rect x="5.5" y="7" width="11" height="8" rx="2" style="fill:none;stroke:var(--on-you)" stroke-width="1.6" stroke-dasharray="2.6 1.8"/></svg><span>Learn <b>Meta</b> Ads</span></a>
+<nav class="bar-nav" aria-label="Site"><a href="../#lessons">All lessons</a><button class="btn" type="button" data-theme-btn>Theme: auto</button></nav>
+</div></header>
+<!-- /bar -->
+<main class="wrap">
+  <header class="hero">
+    <p class="eyebrow">Lesson 9 · Media buying · 10 min</p>
+    <h1>Testing without <span>fooling</span> yourself</h1>
+    <p class="lede"><a href="../budgets-bids-scaling/">Lesson 8</a> spent the money. Now read what it bought. Small numbers lie, spend lands unevenly, and the first numbers to arrive aren’t the ones that pay. Here’s how much data a verdict needs, simple rules for what to cut and keep, and how to make each test teach the next one.</p>
+    <ul class="toc">
+      <li><a href="#s1"><b>1</b> Small numbers lie</a></li>
+      <li><a href="#s2"><b>2</b> How much is enough</a></li>
+      <li><a href="#s3"><b>3</b> Uneven spend</a></li>
+      <li><a href="#s4"><b>4</b> Cut and keep rules</a></li>
+      <li><a href="#s5"><b>5</b> Early signals</a></li>
+      <li><a href="#s6"><b>6</b> The learning log</a></li>
+      <li><a href="#recap"><b>→</b> Five-line recap</a></li>
+    </ul>
+  </header>
+
+  <section class="step" id="s1">
+    <div class="copy">
+      <p class="stepno">Step 1 of 6</p>
+      <h2>Small numbers lie</h2>
+      <p>Here are two identical ads: same creative, same audience, and the same true conversion rate. 2.5% of the people who click buy. Each ad gets 40 clicks, so each should get about one sale.</p>
+      <p>Press Run again. Most runs, one ad looks better than the other, sometimes three times better. Nothing differs but luck. In this example one ad comes out ahead in about 7 runs out of 10.</p>
+      <p>Real tests look exactly like this in their first days. A gap between 3 sales and 1 sale is not a finding.</p>
+      <p class="so"><span class="label">So</span><span>A gap between two small numbers is usually luck. Don’t pick a winner from a handful of sales.</span></p>
+    </div>
+    <figure class="stage">
+      <div class="stage-head"><span class="tag">Example numbers · 2.5% each</span><div class="btns"><button class="btn primary" type="button" id="run1">Run again</button><button class="btn" type="button" id="run10">Run 10 times</button></div></div>
+      <canvas role="img" aria-label="Two identical ads with 40 clicks each, drawn as dots. Clicks that became sales are filled in. A verdict line says how much better one ad looks, and a row of squares tallies the runs where one ad looked better than the other."></canvas>
+      <dl class="readout" id="out1"></dl>
+    </figure>
+  </section>
+
+  <section class="step" id="s2">
+    <div class="copy">
+      <p class="stepno">Step 2 of 6</p>
+      <h2>How much data is enough</h2>
+      <p>Every count is noisy. A handy rule: a count of n can be off by about 2 ÷ √n of itself, either way. At 25 sales that’s ±40%. At 100 sales it’s ±20%.</p>
+      <p>Cost per sale is spend divided by sales, so it carries the same noise. In this example the ad shows $20 a sale against a $27 breakeven. At 25 sales the true cost could be anywhere from $14 to $33, so you can’t tell which side of $27 it’s on. It takes about 60 sales before the whole range sits under $27.</p>
+      <p>Clicks pile up much faster than sales, which makes them tempting to judge on. But sales are what you pay for, so judge cost per sale on sales.</p>
+      <p class="do"><span class="label">Check yours</span><span>Before you call a test, count the sales behind each number. Work out 2 ÷ √sales. If the range it gives crosses your breakeven, it’s too early.</span></p>
+      <p class="so"><span class="label">So</span><span>Judge on sales, not clicks, and wait until the whole range clears your breakeven.</span></p>
+    </div>
+    <figure class="stage">
+      <div class="stage-head"><span class="tag">Example numbers · $20 a sale</span></div>
+      <canvas role="img" aria-label="A shaded band shows the range the true cost per sale could be in, around a measured $20, for 3 to 300 sales. The band is very wide at a few sales and narrows as sales grow. A dashed line marks the $27 breakeven; the band drops fully below it at 60 sales. A bar marks the number of sales you choose."></canvas>
+      <div class="sliders one">
+        <label for="n2"><span class="row"><span>Sales so far</span><output id="on2" for="n2">25</output></span><input id="n2" type="range" min="0" max="20" step="1" value="9" aria-valuetext="25 sales"></label>
+      </div>
+      <dl class="readout" id="out2"></dl>
+      <p class="formula" id="f2" aria-live="polite"></p>
+    </figure>
+  </section>
+
+  <section class="step" id="s3">
+    <div class="copy">
+      <p class="stepno">Step 3 of 6</p>
+      <h2>Uneven spend means untested, not lost</h2>
+      <p>Put ten ads in one ad set and Meta won’t split the budget evenly. As <a href="../how-creative-wins/">lesson 1</a> showed, it spends a little on each new ad to find out, then feeds the ads that get early results. Spend piles onto a few ads fast.</p>
+      <p>In this example, two ads take 53% of the $1,306. Three ads spent less than $44, twice the $22 target. Ad J spent $8. That isn’t a losing ad. It’s an ad nobody has tested.</p>
+      <p>Don’t file a low-spend ad under “didn’t work”. If you still believe in it, put it in your next test batch. If you need a clean head-to-head, use Meta’s A/B test tool.</p>
+      <p class="data meta"><span class="label">Meta says</span><span>The A/B test tool compares up to five ad variants. Test one variable at a time, and don’t test by toggling ad sets on and off.</span></p>
+      <p class="so"><span class="label">So</span><span>An ad that barely spent has told you nothing. Call it untested, and don’t count it as a loss.</span></p>
+    </div>
+    <figure class="stage">
+      <div class="stage-head"><span class="tag">Example numbers · one ad set</span><div class="btns"><button class="btn" type="button" data-replay>Replay</button></div></div>
+      <canvas role="img" aria-label="Spend for ten ads in one ad set, sorted from most to least. Ad A spent $412 and ad B $286, together 53% of the $1,306. A dashed line marks $44, twice the $22 target. Ads H, I and J spent less than that and are marked untested."></canvas>
+    </figure>
+  </section>
+
+  <section class="step" id="s4">
+    <div class="copy">
+      <p class="stepno">Step 4 of 6</p>
+      <h2>Cut and keep rules tied to your target</h2>
+      <p>You can’t wait for 60 sales on every ad. You need rules that cut clear losers early and leave everything else alone. These are the course’s rules of thumb, set against your target cost per sale from <a href="../what-you-can-pay/">lesson 3</a>:</p>
+      <p><b>Turn it off</b> once it has spent 2× your target and still costs more than 2× your target per sale. No sales counts as more. <b>Keep it</b> once it has 3 or more sales at or under your target. Everything else is <b>too early</b>: leave it running.</p>
+      <p>“Keep” means keep it running, not scale it. Three sales can’t prove an ad is good (step 2). They only show it’s earning its spend so far.</p>
+      <p>Move the target. With the same ten ads, a $15 target keeps nothing and cuts six. A $60 target keeps four and cuts nothing. The rules only work if the target is your real one.</p>
+      <p class="so"><span class="label">So</span><span>Cut on spend against your target, keep on sales at your target, and leave the rest alone.</span></p>
+    </div>
+    <figure class="stage">
+      <div class="stage-head"><span class="tag">Example numbers · ten ads</span></div>
+      <canvas role="img" aria-label="Ten ads in rows, each with its spend, sales, cost per sale and a verdict: keep, off or too early. A dashed line on the spend bars marks twice your target. At a $22 target, ads A and D are kept, C, E and F are turned off, and the other five are too early."></canvas>
+      <div class="sliders one">
+        <label for="t4"><span class="row"><span>Your target cost per sale</span><output id="ot4" for="t4">$22</output></span><input id="t4" type="range" min="15" max="60" step="1" value="22"></label>
+      </div>
+      <dl class="readout" id="out4"></dl>
+      <p class="formula" id="f4" aria-live="polite"></p>
+    </figure>
+  </section>
+
+  <section class="step" id="s5">
+    <div class="copy">
+      <p class="stepno">Step 5 of 6</p>
+      <h2>Early signals tell you what to fix</h2>
+      <p>Sales are slow to count. Other numbers settle much sooner, because the events behind them are far more common.</p>
+      <p>Hook rate is 3-second plays ÷ impressions: did the opening stop people? Hold rate is ThruPlays ÷ 3-second plays: did they keep watching? Link CTR, from <a href="../the-numbers/">lesson 2</a>, is link clicks ÷ impressions: did they act?</p>
+      <p>Slide through two weeks of a test ad at $20 a day. Its hook and hold rates are steady on day 1 and its link CTR by day 5. Its cost per sale is still a guess on day 14, with about 8 sales.</p>
+      <p>So use the early numbers to choose what to iterate (lesson 6). A weak hook rate calls for a new opening. A good hook with a weak hold calls for a new middle. Don’t cut an ad on them: cuts go by spend against your target (step 4).</p>
+      <p class="data meta"><span class="label">Meta says</span><span>3-second video plays count plays of at least 3 seconds, or nearly the whole video if it’s shorter. ThruPlays count plays to the end or of at least 15 seconds. Link CTR is link clicks divided by impressions.</span></p>
+      <p class="data rep"><span class="label">Reported</span><span>Segwise and Jetfuel define hook rate as 3-second plays ÷ impressions and hold rate as ThruPlays ÷ 3-second plays. Some use 15-second views instead of ThruPlays.</span></p>
+      <p class="so"><span class="label">So</span><span>Early numbers tell you what to fix. Only sales tell you what to keep.</span></p>
+    </div>
+    <figure class="stage">
+      <div class="stage-head"><span class="tag">Example numbers · $20 a day</span></div>
+      <canvas role="img" aria-label="Four lanes over 14 days: hook rate, hold rate, link CTR and cost per sale. A day turns solid once that number is within 20% either way. Hook and hold rate are solid from day 1, link CTR from day 5, and cost per sale never in the 14 days."></canvas>
+      <div class="sliders one">
+        <label for="d5"><span class="row"><span>Day</span><output id="od5" for="d5">7</output></span><input id="d5" type="range" min="1" max="14" step="1" value="7"></label>
+      </div>
+      <dl class="readout" id="out5"></dl>
+      <ul class="legend">
+        <li><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><rect x="1" y="1" width="10" height="10" rx="2" style="fill:var(--you)"/></svg>steady: within ±20%</li>
+        <li><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><rect x="1" y="1" width="10" height="10" rx="2" style="fill:var(--line)"/></svg>still noisy</li>
+      </ul>
+    </figure>
+  </section>
+
+  <section class="step" id="s6">
+    <div class="copy">
+      <p class="stepno">Step 6 of 6</p>
+      <h2>Write every test down</h2>
+      <p>A test nobody writes down teaches you once, then gets forgotten. A log turns each test into a line you can build on: what you thought, what happened, what you learned and what you’ll make next.</p>
+      <p>Read the example log. No single row proves much. But the parent concept and the ice hook each looked good alone, and together they made the best ad in the log. That only happens because someone wrote the first two down.</p>
+      <p>Log the honest result, including “too early”. An untested ad goes back in the queue, not in the bin.</p>
+      <p class="do"><span class="label">Start yours</span><span>Start a log with your last 5 tests. One line each: hypothesis, result, what you learned, what you’ll make next.</span></p>
+      <p class="so"><span class="label">So</span><span>Learnings only compound when they’re written down. The log is how this week’s test makes next week’s brief better.</span></p>
+    </div>
+    <figure class="stage">
+      <div class="stage-head"><span class="tag">Example numbers · a water bottle</span><div class="btns"><button class="btn" type="button" data-replay>Replay</button></div></div>
+      <canvas role="img" aria-label="Five test lines stack up one at a time: parents look promising, the ice hook stops more people, leading with price didn’t sell, one ad is untested and back in the queue, and parents plus the ice hook work together. Each line drops a tag into the next brief."></canvas>
+      <div class="tbl log">
+        <table>
+          <thead><tr><th>Test</th><th>Hypothesis</th><th>Result</th><th>Learned</th><th>Next</th></tr></thead>
+          <tbody>
+            <tr><td data-k="Test">1</td><td data-k="Hypothesis">Parents buy this bottle for school, not the gym</td><td data-k="Result">School concept: 14 sales at $22. Gym: 3 at $48</td><td data-k="Learned">Parents look promising. 14 sales isn’t proof</td><td data-k="Next">Two more parent concepts</td></tr>
+            <tr><td data-k="Test">2</td><td data-k="Hypothesis">“Ice for 24 hours” stops more people than “leak-proof”</td><td data-k="Result">Hook rate 34% vs 22%. Too few sales to call</td><td data-k="Learned">The ice hook stops more people</td><td data-k="Next">Put the ice hook on a parent concept</td></tr>
+            <tr><td data-k="Test">3</td><td data-k="Hypothesis">Leading with the price sells</td><td data-k="Result">No sales on $60, over 2× the $22 target</td><td data-k="Learned">Off. Price-first didn’t sell here</td><td data-k="Next">Lead with the use, not the price</td></tr>
+            <tr><td data-k="Test">4</td><td data-k="Hypothesis">A car cup-holder scene helps</td><td data-k="Result">$9 spent. Too early</td><td data-k="Learned">Untested, not lost</td><td data-k="Next">Back in the next batch</td></tr>
+            <tr><td data-k="Test">5</td><td data-k="Hypothesis">Parent concept plus ice hook</td><td data-k="Result">64 sales at $19, under the $27 breakeven either way</td><td data-k="Learned">The two learnings stack</td><td data-k="Next">Five new parent concepts with the ice hook</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </figure>
+  </section>
+
+  <section class="recap" id="recap">
+    <p class="eyebrow">The whole thing</p>
+    <h2>Five lines to remember</h2>
+    <ol>
+      <li><span>A gap between two small numbers is usually luck.</span></li>
+      <li><span>A count of n is off by about 2 ÷ √n. Judge cost per sale on sales, and wait until the range clears your breakeven.</span></li>
+      <li><span>An ad that barely spent is untested, not lost.</span></li>
+      <li><span>Cut on spend against your target, keep on sales at your target, and leave the rest running.</span></li>
+      <li><span>Hook rate, hold rate and CTR tell you what to fix. Write every test down so the learnings compound.</span></li>
+    </ol>
+  </section>
+
+  <footer class="sources">
+    <h3>Where the numbers come from</h3>
+    <ul>
+      <li><b>Example numbers</b> in all six steps are made up so the arithmetic is easy to follow. The $27 breakeven matches lesson 3’s example, the $22 target is that lesson’s $21.60 target rounded, and the 2.5% conversion rate matches lesson 2’s. The ±2 ÷ √n range is a standard rough rule for counts. The cut and keep rules are the course’s rules of thumb.</li>
+      <li>The A/B test tool, up to five variants, one variable at a time: <a href="https://www.facebook.com/business/measurement/ab-testing">Meta, A/B testing</a> and <a href="https://www.facebook.com/business/help/1738164643098669">Meta Business Help Center, A/B tests</a>.</li>
+      <li>3-second video plays: <a href="https://en-gb.facebook.com/business/help/1792720544284355">Meta Business Help Center</a>. ThruPlays: <a href="https://www.facebook.com/business/help/2051461368219124">Meta Business Help Center</a>. Link CTR: <a href="https://en-gb.facebook.com/business/help/877711998984611">Meta Business Help Center</a>.</li>
+      <li>Hook rate and hold rate definitions, reported: <a href="https://segwise.ai/blog/why-is-my-meta-cpm-so-high">Segwise</a> and <a href="https://jetfuel.agency/creative-performance-metrics-for-dtc-video-ads-hold-rate-thumbstop-and-thruplay-benchmarks-2026/">Jetfuel</a>.</li>
+    </ul>
+  </footer>
+
+<!-- pager -->
+<nav class="pager" aria-label="Lessons">
+<a class="prev" href="../budgets-bids-scaling/"><small>← Lesson 8</small><span>Budgets, bids and scaling</span></a>
+<a class="next" href="../tracking-attribution/"><small>Lesson 10 →</small><span>Tracking and attribution</span></a>
+</nav>
+<!-- /pager -->
+</main>
+<!-- foot -->
+<footer class="foot"><div class="foot-in">
+<p>Written by <b>Brett Friedman</b> · <a href="https://thecreativestrategyagency.com/">The Creative Strategy Agency</a>.</p>
+<p>Learn Meta Ads is an independent guide. It is not affiliated with or endorsed by Meta Platforms, Inc.</p>
+</div></footer>
+<!-- /foot -->
+<script src="../assets/engine.js"></script>
+<script>
+(() => {
+'use strict';
+const {C, TAU, clamp, seg, easeIO, easeOut, rng, rrect, txt, measure, money, num, scene} = LMA;
+
+function wrap(ctx, s, x, y, maxW, lh, o){
+  let line = '', yy = y;
+  for (const w of s.split(' ')){
+    const t = line ? line + ' ' + w : w;
+    if (line && measure(ctx, t, o.size, o.w) > maxW){ txt(ctx, line, x, yy, o); line = w; yy += lh; }
+    else line = t;
+  }
+  if (line) txt(ctx, line, x, yy, o);
+  return yy;
+}
+function dot(ctx, x, y, r, col, a = 1){
+  ctx.save(); ctx.globalAlpha *= a; ctx.fillStyle = col; ctx.strokeStyle = C.surface; ctx.lineWidth = 2.5;
+  ctx.beginPath(); ctx.arc(x, y, r, 0, TAU); ctx.fill(); ctx.stroke(); ctx.restore();
+}
+function diamond(ctx, x, y, r, col, a = 1){
+  ctx.save(); ctx.globalAlpha *= a; ctx.fillStyle = col; ctx.strokeStyle = C.surface; ctx.lineWidth = 2;
+  ctx.beginPath(); ctx.moveTo(x, y - r); ctx.lineTo(x + r, y); ctx.lineTo(x, y + r); ctx.lineTo(x - r, y); ctx.closePath(); ctx.fill(); ctx.stroke(); ctx.restore();
+}
+function readout(id, rows){
+  document.getElementById(id).innerHTML = rows.map(([k, v, c]) => `<div${c ? ` class="${c}"` : ''}><dt>${k}</dt><dd>${v}</dd></div>`).join('');
+}
+const plural = (n, w) => `${n} ${w}${n === 1 ? '' : 's'}`;
+const BE = 27;
+
+/* ---------- 1 · small numbers lie ---------- */
+const CR1 = .025, N1 = 40;
+/* chance two identical ads end with different sale counts */
+const PD1 = (() => {
+  let same = 0;
+  for (let k = 0; k <= N1; k++){
+    let c = 1; for (let j = 0; j < k; j++) c = c * (N1 - j) / (j + 1);
+    const p = c * CR1 ** k * (1 - CR1) ** (N1 - k);
+    same += p * p;
+  }
+  return 1 - same;
+})();
+const st1 = {run:0, a:[], b:[], hist:[]};
+function sample1(run){
+  const r = rng(9000 + run), a = [], b = [];
+  for (let i = 0; i < N1; i++) a.push(r() < CR1);
+  for (let i = 0; i < N1; i++) b.push(r() < CR1);
+  return {a, b};
+}
+const cnt = arr => arr.filter(Boolean).length;
+function verdict1(){
+  const sa = cnt(st1.a), sb = cnt(st1.b);
+  if (sa === sb) return [`A tie: ${plural(sa, 'sale')} each.`, 'This time the luck evened out.'];
+  const [w, l, sw, sl] = sa > sb ? ['A', 'B', sa, sb] : ['B', 'A', sb, sa];
+  if (sl === 0) return [`Ad ${w} got ${plural(sw, 'sale')}. Ad ${l} got none.`, 'Same ad, same 2.5%. The gap is luck.'];
+  const r = sw / sl;
+  return [`Ad ${w} looks ${Number.isInteger(r) ? r : num(r, 1)}× better.`, 'Same ad, same 2.5%. The gap is luck.'];
+}
+const GX1 = i => 29 + (i % 20) * 18;
+function adRow(ctx, t, name, arr, y, col){
+  const s = cnt(arr);
+  txt(ctx, name, 16, y, {size:14, w:850, color:col});
+  txt(ctx, `${plural(s, 'sale')} · ${num(s / N1 * 100, 1)}%`, 384, y, {size:12.5, w:800, align:'right', color:C.ink, alpha:seg(t, .95, 1.2)});
+  arr.forEach((hit, i) => {
+    const a = seg(t, .05 + i * .022, .12 + i * .022), x = GX1(i), yy = y + 22 + Math.floor(i / 20) * 20;
+    if (a <= 0) return;
+    if (hit){
+      const p = easeOut(seg(t, .12 + i * .022, .3 + i * .022));
+      dot(ctx, x, yy, 4 + 3.5 * p, col, a);
+    } else {
+      ctx.save(); ctx.globalAlpha *= a; ctx.fillStyle = C.line;
+      ctx.beginPath(); ctx.arc(x, yy, 4, 0, TAU); ctx.fill(); ctx.restore();
+    }
+  });
+}
+const s1 = scene('s1', {H:300, dur:1.6, draw(ctx, t){
+  adRow(ctx, t, 'Ad A', st1.a, 18, C.you);
+  adRow(ctx, t, 'Ad B', st1.b, 96, C.alt);
+  const v = verdict1(), va = easeOut(seg(t, 1.0, 1.4));
+  txt(ctx, v[0], 16, 176, {size:15, w:850, alpha:va});
+  txt(ctx, v[1], 16, 196, {size:12.5, w:600, color:C.muted, alpha:va});
+  /* tally of runs */
+  const H = st1.hist.slice(-30), off = st1.hist.length - H.length;
+  txt(ctx, st1.hist.length > 30 ? `Last 30 of ${st1.hist.length} runs` : 'Runs so far', 16, 226, {size:12, w:700, color:C.muted});
+  H.forEach((g, i) => {
+    const last = off + i === st1.hist.length - 1, a = last ? seg(t, 1.0, 1.3) : 1;
+    ctx.save(); ctx.globalAlpha *= a;
+    rrect(ctx, 16 + i * 12, 234, 9, 9, 2);
+    if (g){ ctx.fillStyle = C.you; ctx.fill(); }
+    else { ctx.strokeStyle = C.faint; ctx.lineWidth = 1.4; ctx.stroke(); }
+    ctx.restore();
+  });
+  const g = st1.hist.reduce((s, x) => s + x, 0), n = st1.hist.length;
+  txt(ctx, `One ad looked better in ${g} of ${plural(n, 'run')}.`, 16, 270, {size:14, w:850, color:C.you});
+  txt(ctx, `For identical ads, expect about ${Math.round(PD1 * 10)} in 10.`, 16, 290, {size:12.5, w:600, color:C.muted});
+}});
+function go1(k, animate){
+  for (let j = 0; j < k; j++){
+    const {a, b} = sample1(st1.run);
+    st1.run++;
+    st1.a = a; st1.b = b;
+    st1.hist.push(cnt(a) === cnt(b) ? 0 : 1);
+  }
+  const sa = cnt(st1.a), sb = cnt(st1.b), g = st1.hist.reduce((s, x) => s + x, 0);
+  readout('out1', [
+    ['Ad A', `${plural(sa, 'sale')} · ${num(sa / N1 * 100, 1)}%`],
+    ['Ad B', `${plural(sb, 'sale')} · ${num(sb / N1 * 100, 1)}%`],
+    ['One looked better', `${g} of ${plural(st1.hist.length, 'run')}`, 'hot']
+  ]);
+  if (animate) s1.play(); else s1.still();
+}
+document.getElementById('run1').addEventListener('click', () => go1(1, true));
+document.getElementById('run10').addEventListener('click', () => go1(10, true));
+go1(1, false);
+
+/* ---------- 2 · how much data is enough ---------- */
+const NS2 = [3, 4, 5, 6, 8, 10, 12, 15, 20, 25, 30, 40, 50, 60, 75, 100, 125, 150, 200, 250, 300];
+const M2 = 20;
+const lo2 = n => M2 / (1 + 2 / Math.sqrt(n));
+const hi2 = n => { const e = 2 / Math.sqrt(n); return e >= 1 ? Infinity : M2 / (1 - e); };
+const CLEAR2 = NS2.find(n => hi2(n) <= BE);
+const P2 = {x0:52, x1:368, y0:34, y1:210, ymax:60};
+const X2 = n => P2.x0 + (Math.log(n) - Math.log(3)) / (Math.log(300) - Math.log(3)) * (P2.x1 - P2.x0);
+const Y2 = v => P2.y1 - Math.min(v, P2.ymax) / P2.ymax * (P2.y1 - P2.y0);
+const st2 = {n:25};
+const s2 = scene('s2', {H:304, dur:1.8, draw(ctx, t){
+  /* frame */
+  ctx.save(); ctx.strokeStyle = C.line; ctx.lineWidth = 1;
+  for (const v of [0, 20, 40, 60]){ ctx.beginPath(); ctx.moveTo(P2.x0, Y2(v)); ctx.lineTo(P2.x1, Y2(v)); ctx.stroke(); }
+  ctx.strokeStyle = C.faint; ctx.lineWidth = 1.4;
+  ctx.beginPath(); ctx.moveTo(P2.x0, P2.y0 - 4); ctx.lineTo(P2.x0, P2.y1); ctx.lineTo(P2.x1, P2.y1); ctx.stroke();
+  ctx.restore();
+  for (const v of [0, 20, 40, 60]) txt(ctx, '$' + v, P2.x0 - 7, Y2(v) + 4, {size:12, w:600, align:'right', color:C.muted});
+  for (const v of [3, 10, 30, 100, 300]) txt(ctx, String(v), X2(v), P2.y1 + 18, {size:12, w:600, align:'center', color:C.muted});
+  txt(ctx, 'Cost per sale', 16, 18, {size:12.5, w:700, color:C.muted});
+  txt(ctx, 'Sales', (P2.x0 + P2.x1) / 2, 246, {size:12, w:600, align:'center', color:C.muted});
+  /* the band */
+  const d = easeIO(seg(t, .05, 1.1)), a = easeOut(seg(t, 1.0, 1.6));
+  const nEnd = 3 * Math.pow(100, d), steps = 120, pts = [];
+  for (let i = 0; i <= steps; i++) pts.push(3 * Math.pow(nEnd / 3, i / steps));
+  ctx.save();
+  ctx.beginPath(); ctx.rect(P2.x0, P2.y0, P2.x1 - P2.x0, P2.y1 - P2.y0); ctx.clip();
+  ctx.beginPath();
+  pts.forEach((n, i) => { const x = X2(n), y = Y2(hi2(n)); i ? ctx.lineTo(x, y) : ctx.moveTo(x, y); });
+  for (let i = pts.length - 1; i >= 0; i--) ctx.lineTo(X2(pts[i]), Y2(lo2(pts[i])));
+  ctx.closePath(); ctx.fillStyle = C.yousoft; ctx.fill();
+  ctx.restore();
+  /* measured and breakeven */
+  ctx.save(); ctx.strokeStyle = C.you; ctx.lineWidth = 2.4;
+  ctx.beginPath(); ctx.moveTo(P2.x0, Y2(M2)); ctx.lineTo(P2.x0 + (P2.x1 - P2.x0) * d, Y2(M2)); ctx.stroke();
+  ctx.strokeStyle = C.loss; ctx.lineWidth = 2; ctx.setLineDash([6, 5]);
+  ctx.beginPath(); ctx.moveTo(P2.x0, Y2(BE)); ctx.lineTo(P2.x1, Y2(BE)); ctx.stroke();
+  ctx.restore();
+  txt(ctx, 'breakeven $27', P2.x1, Y2(BE) - 8, {size:12, w:700, align:'right', color:C.loss});
+  diamond(ctx, X2(CLEAR2), P2.y1, 6, C.you, a);
+  /* the chosen count */
+  const n = st2.n, x = X2(n), lo = lo2(n), hi = hi2(n), yTop = Y2(hi), yBot = Y2(lo);
+  ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = C.you; ctx.lineWidth = 4; ctx.lineCap = 'round';
+  ctx.beginPath(); ctx.moveTo(x, yTop); ctx.lineTo(x, yBot); ctx.stroke(); ctx.restore();
+  dot(ctx, x, yBot, 5.5, C.you, a);
+  if (hi <= P2.ymax) dot(ctx, x, yTop, 5.5, C.you, a);
+  const right = x < 300, lx = right ? x + 10 : x - 10, al = right ? 'left' : 'right';
+  txt(ctx, hi === Infinity ? '↑ no limit' : hi > P2.ymax ? `↑ ${money(hi)}` : money(hi), lx, hi > P2.ymax ? P2.y0 + 12 : yTop + 4, {size:12.5, w:850, align:al, color:C.you, alpha:a});
+  txt(ctx, money(lo), lx, yBot + 14, {size:12.5, w:850, align:al, color:C.you, alpha:a});
+  /* verdict */
+  const clear = hi <= BE;
+  txt(ctx, `${n} sales: ${money(lo)} to ${hi === Infinity ? 'no upper limit' : money(hi)}`, 16, 274, {size:14, w:850, alpha:a});
+  txt(ctx, clear ? 'Under $27 either way.' : `Can’t tell yet. ◆ The range clears $27 at ${CLEAR2} sales.`, 16, 294, {size:12.5, w:700, color:clear ? C.you : C.muted, alpha:a});
+}});
+function set2(i){
+  const n = NS2[i], e = 2 / Math.sqrt(n), lo = lo2(n), hi = hi2(n);
+  st2.n = n;
+  const inp = document.getElementById('n2');
+  document.getElementById('on2').textContent = n;
+  inp.setAttribute('aria-valuetext', `${n} sales`);
+  readout('out2', [
+    ['Could be off by', `±${Math.round(e * 100)}%`],
+    ['True cost per sale', `${money(lo)} to ${hi === Infinity ? 'no limit' : money(hi)}`],
+    ['Under $27?', hi <= BE ? 'Yes, either way' : 'Can’t tell yet', hi <= BE ? 'hot' : '']
+  ]);
+  document.getElementById('f2').textContent = e >= 1
+    ? `± 2 ÷ √${n} = ±${Math.round(e * 100)}%. That’s more than 100%, so there’s no upper limit: the true cost could be anything above ${money(lo)}.`
+    : `± 2 ÷ √${n} = ±${Math.round(e * 100)}%. $20 ÷ (1 + ${num(e, 2)}) = ${money(lo, 2)}. $20 ÷ (1 − ${num(e, 2)}) = ${money(hi, 2)}.`;
+  s2.still();
+}
+document.getElementById('n2').addEventListener('input', e => set2(+e.target.value));
+set2(9);
+
+/* ---------- the same ten ads for steps 3 and 4 ---------- */
+const ADS = [
+  {id:'A', sp:412, s:19}, {id:'B', sp:286, s:9}, {id:'C', sp:170, s:3}, {id:'D', sp:139, s:7}, {id:'E', sp:96, s:1},
+  {id:'F', sp:71, s:0}, {id:'G', sp:65, s:2}, {id:'H', sp:38, s:0}, {id:'I', sp:21, s:1}, {id:'J', sp:8, s:0}
+];
+const TOTAL = ADS.reduce((s, a) => s + a.sp, 0);
+const TGT = 22; // lesson 3’s $21.60 target, rounded
+
+/* ---------- 3 · uneven spend ---------- */
+const BX3 = sp => 40 + sp / 450 * 290;
+const s3 = scene('s3', {H:318, dur:2.2, draw(ctx, t){
+  txt(ctx, `Spend per ad · ${money(TOTAL)} in all`, 16, 18, {size:12.5, w:700, color:C.muted});
+  const lim = 2 * TGT, xl = BX3(lim), la = easeOut(seg(t, 1.2, 1.6));
+  ADS.forEach((ad, i) => {
+    const cy = 42 + i * 24, g = easeOut(seg(t, .05 + i * .07, .75 + i * .07)), un = ad.sp < lim;
+    txt(ctx, ad.id, 16, cy + 5, {size:13, w:850, color:un ? C.muted : C.ink});
+    ctx.save();
+    rrect(ctx, 40, cy - 7, Math.max(3, (BX3(ad.sp) - 40) * g), 14, 4);
+    ctx.fillStyle = un ? C.faint : C.you; ctx.globalAlpha *= un ? .55 : (i < 2 ? 1 : .7); ctx.fill();
+    ctx.restore();
+    const lab = un ? `${money(ad.sp)} · untested` : money(ad.sp);
+    txt(ctx, lab, un ? Math.max(BX3(ad.sp) + 7, xl + 8) : BX3(ad.sp) + 7, cy + 5, {size:12.5, w:un ? 700 : 800, color:un ? C.muted : C.ink, alpha:g});
+  });
+  ctx.save(); ctx.globalAlpha *= la; ctx.strokeStyle = C.loss; ctx.lineWidth = 1.8; ctx.setLineDash([4, 4]);
+  ctx.beginPath(); ctx.moveTo(xl, 30); ctx.lineTo(xl, 268); ctx.stroke(); ctx.restore();
+  txt(ctx, `↑ 2× the ${money(TGT)} target: ${money(lim)}`, xl - 6, 284, {size:12.5, w:700, color:C.loss, alpha:la});
+  const top = (ADS[0].sp + ADS[1].sp) / TOTAL;
+  txt(ctx, `A and B took ${Math.round(top * 100)}% of all the spend.`, 16, 306, {size:12.5, w:800, color:C.ink, alpha:easeOut(seg(t, 1.6, 2.1))});
+}});
+
+/* ---------- 4 · cut and keep rules ---------- */
+const st4 = {T:TGT};
+function v4(ad, T){
+  if (ad.s >= 3 && ad.sp / ad.s <= T) return 'keep';
+  if (ad.sp >= 2 * T && (ad.s === 0 || ad.sp / ad.s > 2 * T)) return 'off';
+  return 'wait';
+}
+const VL4 = {keep:'Keep', off:'Off', wait:'Too early'};
+const BX4 = sp => 36 + sp / 412 * 104;
+const s4 = scene('s4', {H:314, dur:1.4, draw(ctx, t){
+  const T = st4.T;
+  txt(ctx, 'Ad', 16, 16, {size:12, w:700, color:C.muted});
+  txt(ctx, 'Spend', 36, 16, {size:12, w:700, color:C.muted});
+  txt(ctx, 'Sales', 236, 16, {size:12, w:700, align:'right', color:C.muted});
+  txt(ctx, 'Per sale', 300, 16, {size:12, w:700, align:'right', color:C.muted});
+  txt(ctx, 'Verdict', 345, 16, {size:12, w:700, align:'center', color:C.muted});
+  const xl = BX4(2 * T);
+  ADS.forEach((ad, i) => {
+    const cy = 42 + i * 24, a = easeOut(seg(t, i * .06, .4 + i * .06)), v = v4(ad, T);
+    txt(ctx, ad.id, 16, cy + 5, {size:13, w:850, alpha:a});
+    ctx.save(); ctx.globalAlpha *= a;
+    rrect(ctx, 36, cy - 6, Math.max(3, BX4(ad.sp) - 36), 12, 3);
+    ctx.fillStyle = ad.sp >= 2 * T ? C.you : C.faint; ctx.globalAlpha *= ad.sp >= 2 * T ? .8 : .55; ctx.fill();
+    ctx.restore();
+    txt(ctx, money(ad.sp), 196, cy + 5, {size:12.5, w:700, align:'right', alpha:a});
+    txt(ctx, String(ad.s), 236, cy + 5, {size:12.5, w:700, align:'right', alpha:a});
+    txt(ctx, ad.s ? money(ad.sp / ad.s) : '–', 300, cy + 5, {size:12.5, w:700, align:'right', color:ad.s && ad.sp / ad.s <= T ? C.you : C.ink, alpha:a});
+    ctx.save(); ctx.globalAlpha *= a;
+    rrect(ctx, 308, cy - 10, 76, 21, 10.5);
+    if (v === 'keep'){ ctx.fillStyle = C.win; ctx.fill(); }
+    else if (v === 'off'){ ctx.fillStyle = C.losssoft; ctx.fill(); }
+    else { ctx.strokeStyle = C.line; ctx.lineWidth = 1.2; ctx.stroke(); }
+    ctx.restore();
+    txt(ctx, VL4[v], 346, cy + 5, {size:12, w:800, align:'center', color:v === 'keep' ? C.onwin : v === 'off' ? C.loss : C.muted, alpha:a});
+  });
+  ctx.save(); ctx.strokeStyle = C.loss; ctx.lineWidth = 1.6; ctx.setLineDash([3, 3]);
+  ctx.beginPath(); ctx.moveTo(xl, 28); ctx.lineTo(xl, 262); ctx.stroke(); ctx.restore();
+  const c = {keep:0, off:0, wait:0};
+  ADS.forEach(ad => c[v4(ad, T)]++);
+  const fa = easeOut(seg(t, .8, 1.3));
+  txt(ctx, `Keep ${c.keep} · Off ${c.off} · Too early ${c.wait}`, 16, 286, {size:14, w:850, alpha:fa});
+  txt(ctx, `Dashed line: 2× your target, ${money(2 * T)} spent.`, 16, 306, {size:12.5, w:600, color:C.muted, alpha:fa});
+}});
+function set4(T){
+  st4.T = T;
+  document.getElementById('ot4').textContent = money(T);
+  const c = {keep:[], off:[], wait:[]};
+  ADS.forEach(ad => c[v4(ad, T)].push(ad.id));
+  const list = a => a.length ? `${a.length} (${a.join(', ')})` : '0';
+  readout('out4', [
+    ['Keep', list(c.keep), 'hot'],
+    ['Off', list(c.off), c.off.length ? 'bad' : ''],
+    ['Too early', list(c.wait)]
+  ]);
+  document.getElementById('f4').textContent = `Target ${money(T)}. Off: spent ${money(2 * T)} or more and still over ${money(2 * T)} a sale; no sales counts as over. Keep: 3 or more sales at ${money(T)} or less. Everything else: too early.`;
+  s4.still();
+}
+document.getElementById('t4').addEventListener('input', e => set4(+e.target.value));
+set4(TGT);
+
+/* ---------- 5 · early signals ---------- */
+const M5 = [
+  {name:'Hook rate', per:600, unit:'3-second plays'},
+  {name:'Hold rate', per:150, unit:'ThruPlays'},
+  {name:'Link CTR', per:24, unit:'clicks'},
+  {name:'Cost per sale', per:.6, unit:'sales'}
+];
+const err5 = (m, d) => 2 / Math.sqrt(m.per * d);
+const steadyDay5 = m => Math.ceil(100 / m.per - 1e-9);
+const CX5 = d => 16 + (d - .5) * (368 / 14);
+const st5 = {d:7};
+const s5 = scene('s5', {H:300, dur:1.6, draw(ctx, t){
+  const D = st5.d, p = easeIO(seg(t, .05, 1.2)) * 14;
+  txt(ctx, 'How far off each number could be', 16, 18, {size:12.5, w:700, color:C.muted});
+  txt(ctx, `Day ${D}`, 384, 18, {size:13, w:850, align:'right', color:C.you});
+  M5.forEach((m, i) => {
+    const y = 50 + i * 56, e = err5(m, D), ok = e <= .2, cw = 368 / 14;
+    txt(ctx, m.name, 16, y, {size:13.5, w:850});
+    const count = m.per * D, cs = count < 10 ? num(count, 1) : num(Math.round(count));
+    const right = e >= .5 ? `too few · ${cs} ${m.unit}` : `±${Math.round(e * 100)}% · ${cs} ${m.unit}`;
+    txt(ctx, right, 384, y, {size:12.5, w:750, align:'right', color:ok ? C.you : C.muted});
+    for (let d = 1; d <= 14; d++){
+      const a = clamp(p - (d - 1)), s = err5(m, d) <= .2, x = 16 + (d - 1) * cw;
+      if (a <= 0) continue;
+      ctx.save(); ctx.globalAlpha *= a * (d > D ? .3 : 1);
+      rrect(ctx, x + 1.5, y + 9, cw - 3, 16, 3);
+      ctx.fillStyle = s ? C.you : C.line; ctx.fill();
+      if (d === D){ ctx.strokeStyle = C.ink; ctx.lineWidth = 2; ctx.stroke(); }
+      ctx.restore();
+    }
+  });
+  for (let d = 1; d <= 14; d++) txt(ctx, String(d), CX5(d), 268, {size:12, w:d === D ? 850 : 600, align:'center', color:d === D ? C.ink : C.muted});
+  txt(ctx, 'Day', 16, 290, {size:12, w:600, color:C.muted});
+  txt(ctx, `Cost per sale needs about 100 sales for ±20%.`, 384, 290, {size:12.5, w:700, align:'right', color:C.muted, alpha:easeOut(seg(t, 1.1, 1.5))});
+}});
+function set5(D){
+  st5.d = D;
+  document.getElementById('od5').textContent = D;
+  readout('out5', [
+    ['Impressions', num(2000 * D)],
+    ['Link clicks', num(24 * D)],
+    ['Sales', num(.6 * D, 1), 'bad']
+  ]);
+  s5.still();
+}
+document.getElementById('d5').addEventListener('input', e => set5(+e.target.value));
+set5(7);
+
+/* ---------- 6 · the learning log ---------- */
+const LOG6 = [
+  {t:'Test 1', l:'Parents look promising', chip:'Parents', k:'you'},
+  {t:'Test 2', l:'The ice hook stops more people', chip:'Ice hook', k:'you'},
+  {t:'Test 3', l:'Leading with price didn’t sell', chip:'No price lead', k:'loss'},
+  {t:'Test 4', l:'Untested: back in the queue', chip:'Retest cup holder', k:'muted'},
+  {t:'Test 5', l:'Parents plus the ice hook stack', chip:'Proven pair', k:'win'}
+];
+const s6 = scene('s6', {H:356, dur:3.4, draw(ctx, t){
+  txt(ctx, 'Each test adds a line', 16, 18, {size:12.5, w:700, color:C.muted});
+  /* chip layout inside the brief */
+  const chips = [];
+  let cx = 30, cy = 284;
+  LOG6.forEach(r => {
+    const w = measure(ctx, r.chip, 12.5, 800) + 20;
+    if (cx + w > 370){ cx = 30; cy += 30; }
+    chips.push({x:cx, y:cy, w}); cx += w + 8;
+  });
+  LOG6.forEach((r, i) => {
+    const y = 30 + i * 36, a = easeOut(seg(t, .1 + i * .5, .5 + i * .5));
+    if (a <= 0) return;
+    ctx.save(); ctx.globalAlpha *= a;
+    rrect(ctx, 16, y, 368, 30, 8); ctx.fillStyle = C.bg; ctx.fill(); ctx.strokeStyle = C.line; ctx.lineWidth = 1; ctx.stroke();
+    ctx.restore();
+    txt(ctx, r.t, 28, y + 20, {size:12, w:700, color:C.muted, alpha:a});
+    txt(ctx, r.l, 90, y + 20, {size:13.5, w:800, alpha:a});
+  });
+  /* arrow into the brief */
+  const ba = easeOut(seg(t, .2, .7));
+  ctx.save(); ctx.globalAlpha *= ba; ctx.strokeStyle = C.faint; ctx.lineWidth = 2;
+  ctx.beginPath(); ctx.moveTo(200, 214); ctx.lineTo(200, 236); ctx.stroke();
+  ctx.fillStyle = C.faint; ctx.beginPath(); ctx.moveTo(193, 232); ctx.lineTo(207, 232); ctx.lineTo(200, 241); ctx.closePath(); ctx.fill();
+  rrect(ctx, 16, 246, 368, 102, 12); ctx.strokeStyle = C.you; ctx.lineWidth = 2; ctx.stroke();
+  ctx.restore();
+  txt(ctx, 'Next brief: five new parent concepts', 30, 270, {size:14, w:850, alpha:ba});
+  LOG6.forEach((r, i) => {
+    const a = easeOut(seg(t, .35 + i * .5, .75 + i * .5));
+    if (a <= 0) return;
+    const c = chips[i], from = 30 + i * 36 + 15, y = c.y + (from - c.y) * (1 - a);
+    const col = r.k === 'loss' ? C.loss : r.k === 'muted' ? C.muted : r.k === 'win' ? C.onwin : C.you;
+    ctx.save(); ctx.globalAlpha *= a;
+    rrect(ctx, c.x, y - 1, c.w, 24, 12);
+    if (r.k === 'win'){ ctx.fillStyle = C.win; ctx.fill(); }
+    else if (r.k === 'loss'){ ctx.fillStyle = C.losssoft; ctx.fill(); }
+    else if (r.k === 'muted'){ ctx.strokeStyle = C.faint; ctx.lineWidth = 1.2; ctx.setLineDash([3, 3]); ctx.stroke(); }
+    else { ctx.fillStyle = C.yousoft; ctx.fill(); }
+    ctx.restore();
+    txt(ctx, r.chip, c.x + c.w / 2, y + 16, {size:12.5, w:800, align:'center', color:col, alpha:a});
+  });
+}});
+})();
+</script>
+</body>
+</html>

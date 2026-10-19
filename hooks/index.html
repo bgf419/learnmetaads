@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- head -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Hooks and the anatomy of an ad · Lesson 5 · Learn Meta Ads</title>
+<meta name="description" content="The first seconds decide everything after them. How the hook, body and offer each earn the next second.">
+<link rel="canonical" href="https://learnmetaads.com/hooks/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Learn Meta Ads">
+<meta property="og:title" content="Hooks and the anatomy of an ad · Lesson 5 · Learn Meta Ads">
+<meta property="og:description" content="The first seconds decide everything after them. How the hook, body and offer each earn the next second.">
+<meta property="og:url" content="https://learnmetaads.com/hooks/">
+<meta property="og:image" content="https://learnmetaads.com/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F1F3F7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0D1016" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Recursive:slnt,wght,CASL,CRSV,MONO@-15..0,300..1000,0..1,0..1,0..1&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+<script>try{var t=localStorage.getItem('lma-theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t}catch(e){}</script>
+<!-- /head -->
+</head>
+<body>
+<!-- bar -->
+<header class="bar"><div class="bar-in">
+<a class="mark" href="../"><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><rect x="1" y="1" width="20" height="20" rx="5" style="fill:var(--you)"/><rect x="5.5" y="7" width="11" height="8" rx="2" style="fill:none;stroke:var(--on-you)" stroke-width="1.6" stroke-dasharray="2.6 1.8"/></svg><span>Learn <b>Meta</b> Ads</span></a>
+<nav class="bar-nav" aria-label="Site"><a href="../#lessons">All lessons</a><button class="btn" type="button" data-theme-btn>Theme: auto</button></nav>
+</div></header>
+<!-- /bar -->
+<main class="wrap">
+  <header class="hero">
+    <p class="eyebrow">Lesson 5 · Creative strategy · 11 min</p>
+    <h1>Hooks and the <span>anatomy</span> of an ad</h1>
+    <p class="lede"><a href="../the-numbers/">Lesson 2</a> showed how to read the numbers as a chain. This lesson opens up the ad itself: the first 3 seconds, the parts that follow them, and how to tell from the numbers which part to fix.</p>
+    <ul class="toc">
+      <li><a href="#s1"><b>1</b> The first seconds</a></li>
+      <li><a href="#s2"><b>2</b> Hook rate and hold rate</a></li>
+      <li><a href="#s3"><b>3</b> What a hook is made of</a></li>
+      <li><a href="#s4"><b>4</b> The body: a modular ad</a></li>
+      <li><a href="#s5"><b>5</b> Format and safe zones</a></li>
+      <li><a href="#s6"><b>6</b> Swap one part at a time</a></li>
+      <li><a href="#recap"><b>→</b> Five-line recap</a></li>
+    </ul>
+  </header>
+
+  <section class="step" id="s1">
+    <div class="copy">
+      <p class="stepno">Step 1 of 6</p>
+      <h2>Most people leave in the first seconds</h2>
+      <p>Here’s an example video ad shown to 1,000 people as they scroll. Drag the slider to see how many are still watching at each second.</p>
+      <p>The curve drops hardest at the very start. Most of the people who leave are gone before they know what the ad is about. The ones who stay past the opening tend to keep watching.</p>
+      <p>Those first 3 seconds are the <strong>hook</strong>. Everything you want to say later only reaches the people the hook kept.</p>
+      <p class="data rep"><span class="label">Reported</span><span>Benly analysed 12,000+ ads. At the median ad, 28% of impressions became 3-second plays, so most people shown a typical video ad were gone before 3 seconds.</span></p>
+      <p class="so"><span class="label">So</span><span>The first 3 seconds decide who sees the rest. Spend your effort there first.</span></p>
+    </div>
+    <figure class="stage">
+      <div class="stage-head"><span class="tag">Example numbers · 1,000 viewers</span><div class="btns"><button class="btn" type="button" data-replay>Replay</button></div></div>
+      <canvas role="img" aria-label="A retention curve for a 30-second example video shown to 1,000 people. It falls steeply in the first 3 seconds, the shaded hook, to 300 still watching, then flattens out to about 130 at 15 seconds and 57 at 30 seconds. A marker shows how many are still watching at the second you pick."></canvas>
+      <div class="sliders one">
+        <label for="t1"><span class="row"><span>Seconds into the video</span><output id="ot1" for="t1">3.0 s</output></span><input id="t1" type="range" min="0" max="30" step="0.5" value="3"></label>
+      </div>
+      <p class="formula" id="f1" aria-live="polite"></p>
+    </figure>
+  </section>
+
+  <section class="step" id="s2">
+    <div class="copy">
+      <p class="stepno">Step 2 of 6</p>
+      <h2>Hook rate and hold rate</h2>
+      <p>Meta reports two numbers for every video ad. <strong>3-second video plays</strong> count plays of at least 3 seconds. <strong>ThruPlays</strong> count plays to the end, or of at least 15 seconds.</p>
+      <p>Media buyers turn those into two rates. <strong>Hook rate</strong> is 3-second plays ÷ impressions: of everyone shown the ad, how many stopped. <strong>Hold rate</strong> is ThruPlays ÷ 3-second plays: of those who stopped, how many stayed.</p>
+      <p>Move the sliders. A better hook raises every number below it, because more people reach the rest of the ad.</p>
+      <p class="data meta"><span class="label">Meta says</span><span>3-second video plays and ThruPlays are Meta’s own metrics. Since March 2026, an engaged view of a video ad takes 5 seconds of watching, down from 10.</span></p>
+      <p class="data rep"><span class="label">Reported</span><span>Hook rate and hold rate are practitioner formulas, not Meta metrics. Benly’s 12,000+ ads put the top-quartile hook rate at 37% and the bottom quartile at 18%. Segwise calls 25% to 35% workable and above 35% strong.</span></p>
+      <p class="so"><span class="label">So</span><span>Hook rate tells you if people stopped. Hold rate tells you if they stayed. Read them separately.</span></p>
+    </div>
+    <figure class="stage">
+      <div class="stage-head"><span class="tag">Example numbers</span><div class="btns"><button class="btn" type="button" data-replay>Replay</button></div></div>
+      <canvas role="img" aria-label="Three bars: 10,000 impressions, then the 3-second video plays, then the ThruPlays. The hook rate links the first two bars and the hold rate links the last two."></canvas>
+      <div class="sliders">
+        <label for="hk2"><span class="row"><span>Hook rate</span><output id="ohk2" for="hk2">30%</output></span><input id="hk2" type="range" min="10" max="50" step="1" value="30"></label>
+        <label for="hd2"><span class="row"><span>Hold rate</span><output id="ohd2" for="hd2">43%</output></span><input id="hd2" type="range" min="10" max="80" step="1" value="43"></label>
+      </div>
+      <p class="formula" id="f2" aria-live="polite"></p>
+    </figure>
+  </section>
+
+  <section class="step" id="s3">
+    <div class="copy">
+      <p class="stepno">Step 3 of 6</p>
+      <h2>What a hook is made of</h2>
+      <p>A hook isn’t one thing. In the first 3 seconds, three layers work at once:</p>
+      <p><strong>The visual:</strong> motion, a face or a pattern break, something that doesn’t look like the post above it. <strong>The text on screen:</strong> a few big words for people watching without sound. <strong>The first spoken line:</strong> what they hear before they decide.</p>
+      <p>Switch each layer between weak and strong. A weak layer wastes the seconds you have; a strong one names a problem or shows something worth a second look.</p>
+      <p class="data meta"><span class="label">Meta says</span><span>Reels ads play with sound on unless the viewer has turned sound off.</span></p>
+      <p class="so"><span class="label">So</span><span>Write all three layers on purpose. Each one is a chance to stop someone.</span></p>
+    </div>
+    <figure class="stage">
+      <div class="stage-head"><span class="tag">Illustration</span><div class="btns" role="group" aria-label="Hook layers"><button class="btn" type="button" data-layer="0" aria-pressed="true">Strong visual</button><button class="btn" type="button" data-layer="1" aria-pressed="false">Strong text</button><button class="btn" type="button" data-layer="2" aria-pressed="false">Strong first line</button></div></div>
+      <canvas role="img" aria-label="A phone showing the first frame of an ad, with three layers: the visual, the text on screen and the first spoken line as a caption. Each layer is either weak or strong. A meter beside it, an illustration rather than data, fills one segment for each strong layer."></canvas>
+      <p class="formula" id="f3" aria-live="polite"></p>
+    </figure>
+  </section>
+
+  <section class="step" id="s4">
+    <div class="copy">
+      <p class="stepno">Step 4 of 6</p>
+      <h2>The body: a modular ad</h2>
+      <p>After the hook, the rest of the ad has a job too. Most selling videos run in the same order: the hook, then a <strong>sales sequence</strong> (the problem, the solution, the product), then <strong>proof</strong> that it works, then an <strong>end card</strong> with the offer and a call to action (CTA), the line that tells people what to do next.</p>
+      <p>Because the parts are separate, you can swap them. Take the hook from one ad, the sales sequence from a second and the end card from a third. The course calls this a <strong>Frankenstein brief</strong>.</p>
+      <p>Press a swap button. One part changes; the rest of the ad stays the same.</p>
+      <p class="so"><span class="label">So</span><span>An ad is four parts, not one. Build each part so it can be swapped.</span></p>
+    </div>
+    <figure class="stage">
+      <div class="stage-head"><span class="tag">Example ads A, B and C</span><div class="btns"><button class="btn" type="button" data-mod="0">Swap hook</button><button class="btn" type="button" data-mod="1">Swap sequence</button><button class="btn" type="button" data-mod="2">Swap proof</button><button class="btn" type="button" data-mod="3">Swap end card</button></div></div>
+      <canvas role="img" aria-label="A 30-second ad laid out as a timeline: hook, problem, solution, product, proof and end card, with the middle three bracketed as the sales sequence. Below, four rows show which example ad each part comes from and what it says."></canvas>
+      <p class="formula" id="f4" aria-live="polite"></p>
+    </figure>
+  </section>
+
+  <section class="step" id="s5">
+    <div class="copy">
+      <p class="stepno">Step 5 of 6</p>
+      <h2>Format, placements and safe zones</h2>
+      <p>Your ad shows in different places, called placements, and each has its own shape. Reels and Stories fill a tall 9:16 screen. Feed shows a shorter frame.</p>
+      <p>On Reels, the app lays its own buttons, the account name and the caption over your video. Keep your words and faces in the middle, the <strong>safe zone</strong>, where nothing covers them. Tap the frame, or the buttons, to switch between Reels and a 4:5 Feed cut.</p>
+      <p class="data meta"><span class="label">Meta says</span><span>Use 9:16 for Stories and Reels. Facebook Feed video is 4:5. Meta’s Instagram Feed guidance mentions both 9:16 and 1:1 or 4:5, so check the options in Ads Manager.</span></p>
+      <p class="data meta"><span class="label">Meta says</span><span>In a meta-analysis of 15 Reels split tests, 9:16 video with sound and messages inside the safe zone had 34.5% lower cost per result than image ads. Meta doesn’t say when the tests ran.</span></p>
+      <p class="so"><span class="label">So</span><span>Shoot tall, keep the message in the middle, and the same video works in Reels and Feed.</span></p>
+    </div>
+    <figure class="stage">
+      <div class="stage-head"><span class="tag">Illustration · not to scale</span><div class="btns" role="group" aria-label="Placement"><button class="btn" type="button" data-fmt="0" aria-pressed="true">Reels 9:16</button><button class="btn" type="button" data-fmt="1" aria-pressed="false">Feed 4:5</button></div></div>
+      <canvas class="tap" role="img" aria-label="A tall 9:16 video frame. In Reels view, shaded areas at the top, bottom and right show where the app’s own buttons and text sit, and a dashed box marks the safe zone in the middle. In Feed view, a 4:5 crop keeps the middle and trims the top and bottom."></canvas>
+      <p class="formula" id="f5" aria-live="polite"></p>
+    </figure>
+  </section>
+
+  <section class="step" id="s6">
+    <div class="copy">
+      <p class="stepno">Step 6 of 6</p>
+      <h2>Swap one part at a time</h2>
+      <p>Each number points at one part of the ad. Read them in order, like lesson 2’s chain, and stop at the first one that’s low for your account.</p>
+      <p>Few people stop: change the hook. They stop, then leave: change the body. They watch but don’t click: change the offer or the CTA. They click but don’t buy: the ad did its job, so fix the page. (Conversion rate is purchases ÷ link clicks, as in lesson 2.)</p>
+      <p>“Low” means low for you. Compare each ad with your account’s usual, not with someone else’s benchmark.</p>
+      <p class="data meta"><span class="label">Meta says</span><span>When you test, test one variable at a time.</span></p>
+      <p class="do"><span class="label">Check yours</span><span>In Ads Manager, add the columns Impressions, 3-second video plays, ThruPlays and Link clicks next to your purchases. Work out the four rates for your last five videos and find the first one that’s low.</span></p>
+      <p class="so"><span class="label">So</span><span>Change the part the numbers point to, and nothing else. Then you know what the change was worth.</span></p>
+    </div>
+    <figure class="stage">
+      <div class="stage-head"><span class="tag">Example numbers</span><div class="btns" role="group" aria-label="Symptom"><button class="btn" type="button" data-sym="0" aria-pressed="true">Few stop</button><button class="btn" type="button" data-sym="1" aria-pressed="false">Stop, then leave</button><button class="btn" type="button" data-sym="2" aria-pressed="false">Watch, don’t click</button><button class="btn" type="button" data-sym="3" aria-pressed="false">Click, don’t buy</button></div></div>
+      <canvas role="img" aria-label="Four numbers in a row: hook rate, hold rate, link CTR and conversion rate, each with the account’s usual level. Arrows lead down to the part of the ad each one points to: the hook, the body, the offer and CTA, and the page. The low number is marked and its part lights up."></canvas>
+      <p class="formula" id="f6" aria-live="polite"></p>
+    </figure>
+  </section>
+
+  <section class="recap" id="recap">
+    <p class="eyebrow">The whole thing</p>
+    <h2>Five lines to remember</h2>
+    <ol>
+      <li><span>Most people decide in the first seconds, so the hook decides who sees the rest.</span></li>
+      <li><span>Hook rate is 3-second plays ÷ impressions; hold rate is ThruPlays ÷ 3-second plays.</span></li>
+      <li><span>A hook has three layers: the visual, the text on screen and the first spoken line.</span></li>
+      <li><span>After the hook come a sales sequence, proof and an end card, and each part can be swapped.</span></li>
+      <li><span>Find the first low number, change the one part it points to, and keep the rest.</span></li>
+    </ol>
+  </section>
+
+  <footer class="sources">
+    <h3>Where the numbers come from</h3>
+    <ul>
+      <li><b>Example numbers</b> are made up to show the method: the 1,000-viewer curve, the 10,000 impressions, the ads A, B and C, and every rate in step 6. The hook layers, the stop-power meter and the screen zones are illustrations, not measurements.</li>
+      <li>Video metrics: Meta’s definitions of <a href="https://en-gb.facebook.com/business/help/1792720544284355">3-second video plays</a> and <a href="https://www.facebook.com/business/help/2051461368219124">ThruPlays</a>. The 5-second engaged view: <a href="https://www.facebook.com/business/news/click-attribution">Meta, March 2026</a>.</li>
+      <li>Hook rate and hold rate formulas and the 25% to 35% band: <a href="https://segwise.ai/blog/why-is-my-meta-cpm-so-high">Segwise</a>. The 12,000+ ad medians and quartiles: <a href="https://benly.ai/learn/ad-creative/ad-creative-benchmarks-2026">Benly, 2026</a>. Both are practitioner sources, not Meta.</li>
+      <li>Sound on, safe zones and the 34.5% meta-analysis of 15 Reels split tests: <a href="https://www.facebook.com/business/ads/facebook-instagram-reels-ads">Meta, Reels ads</a>. Aspect ratios: <a href="https://www.facebook.com/business/help/103816146375741">Meta, 9:16 placements</a>, <a href="https://www.facebook.com/business/ads-guide/update/video">Facebook Feed video</a> and <a href="https://www.facebook.com/business/ads-guide/update/video/instagram-feed">Instagram Feed video</a>.</li>
+      <li>Test one variable at a time: <a href="https://www.facebook.com/business/measurement/ab-testing">Meta, A/B testing</a>.</li>
+      <li>The three hook layers, the modular ad, the Frankenstein brief and the symptom-to-part map are the course’s method, not measured results.</li>
+    </ul>
+  </footer>
+
+<!-- pager -->
+<nav class="pager" aria-label="Lessons">
+<a class="prev" href="../concepts/"><small>← Lesson 4</small><span>Concepts: who, what and why</span></a>
+<a class="next" href="../iterate-and-refresh/"><small>Lesson 6 →</small><span>Iterate, explore, refresh</span></a>
+</nav>
+<!-- /pager -->
+</main>
+<!-- foot -->
+<footer class="foot"><div class="foot-in">
+<p>Written by <b>Brett Friedman</b> · <a href="https://thecreativestrategyagency.com/">The Creative Strategy Agency</a>.</p>
+<p>Learn Meta Ads is an independent guide. It is not affiliated with or endorsed by Meta Platforms, Inc.</p>
+</div></footer>
+<!-- /foot -->
+<script src="../assets/engine.js"></script>
+<script>
+(() => {
+'use strict';
+const {C, TAU, clamp, seg, easeIO, easeOut, lerp, rrect, txt, measure, arrow, num, scene} = LMA;
+
+function lines(ctx, s, maxW, size, w){
+  const out = []; let cur = '';
+  for (const word of s.split(' ')){
+    const next = cur ? cur + ' ' + word : word;
+    if (cur && measure(ctx, next, size, w) > maxW){ out.push(cur); cur = word; } else cur = next;
+  }
+  if (cur) out.push(cur);
+  return out;
+}
+function para(ctx, s, x, y, maxW, o, lh){ const L = lines(ctx, s, maxW, o.size, o.w); L.forEach((l, i) => txt(ctx, l, x, y + i * lh, o)); return L.length; }
+function fit(ctx, s, maxW, size, w){ while (size > 11.5 && measure(ctx, s, size, w) > maxW) size -= .5; return size; }
+function bottle(ctx, x, y, k = 1, rot = 0){
+  ctx.save(); ctx.translate(x, y); ctx.rotate(rot); ctx.scale(k, k);
+  rrect(ctx, -9, -41, 18, 12, 3); ctx.fillStyle = C.ink; ctx.fill();
+  rrect(ctx, -15, -31, 30, 64, 9); ctx.fillStyle = C.surface; ctx.fill(); ctx.lineWidth = 2; ctx.strokeStyle = C.ink; ctx.stroke();
+  ctx.fillStyle = C.you; ctx.fillRect(-14, -6, 28, 12);
+  ctx.restore();
+}
+
+/* ---------- 1 · retention curve ---------- */
+const N1 = s => 1000 * (.7 * Math.exp(-s / 1.1) + .3 * Math.exp(-s / 18));
+const PX1 = s => 56 + s / 30 * 324, PY1 = n => 200 - n / 1000 * 164;
+const st1 = {s:3};
+const s1 = scene('s1', {H:258, dur:2.4, draw(ctx, t){
+  const p = easeIO(seg(t, .1, 1.6));
+  [0, 500, 1000].forEach(n => {
+    ctx.strokeStyle = C.line; ctx.lineWidth = 1; ctx.beginPath(); ctx.moveTo(56, PY1(n)); ctx.lineTo(380, PY1(n)); ctx.stroke();
+    txt(ctx, num(n), 50, PY1(n) + 4, {size:11.5, w:600, color:C.muted, align:'right'});
+  });
+  [[0, '0 s'], [3, '3 s'], [10, '10 s'], [20, '20 s'], [30, '30 s']].forEach(([s, l]) => txt(ctx, l, PX1(s), 218, {size:11.5, w:600, color:C.muted, align:s === 30 ? 'right' : 'center'}));
+  ctx.fillStyle = C.yousoft; ctx.fillRect(PX1(0), PY1(1000), PX1(3) - PX1(0), PY1(0) - PY1(1000));
+  txt(ctx, 'the hook', PX1(0) + 2, 24, {size:12, w:800, color:C.you});
+  const end = 30 * p;
+  if (end > 0){
+    ctx.beginPath(); ctx.moveTo(PX1(0), PY1(0));
+    for (let s = 0; s <= end + 1e-9; s += .1) ctx.lineTo(PX1(s), PY1(N1(s)));
+    ctx.lineTo(PX1(end), PY1(0)); ctx.closePath();
+    ctx.save(); ctx.globalAlpha = .12; ctx.fillStyle = C.you; ctx.fill(); ctx.restore();
+    ctx.beginPath();
+    for (let s = 0; s <= end + 1e-9; s += .1) ctx.lineTo(PX1(s), PY1(N1(s)));
+    ctx.strokeStyle = C.you; ctx.lineWidth = 3; ctx.stroke();
+  }
+  const a = seg(t, 1.6, 2.1), n = Math.round(N1(st1.s)), x = PX1(st1.s), y = PY1(N1(st1.s));
+  ctx.save(); ctx.globalAlpha = a; ctx.setLineDash([4, 4]); ctx.strokeStyle = C.ink; ctx.lineWidth = 1.5;
+  ctx.beginPath(); ctx.moveTo(x, PY1(1000)); ctx.lineTo(x, PY1(0)); ctx.stroke(); ctx.restore();
+  ctx.save(); ctx.globalAlpha = a; ctx.beginPath(); ctx.arc(x, y, 6, 0, TAU); ctx.fillStyle = C.you; ctx.fill(); ctx.lineWidth = 2.5; ctx.strokeStyle = C.surface; ctx.stroke(); ctx.restore();
+  ctx.save(); ctx.globalAlpha = a; rrect(ctx, 206, 40, 174, 76, 10); ctx.fillStyle = C.surface; ctx.fill(); ctx.lineWidth = 1.5; ctx.strokeStyle = C.line; ctx.stroke(); ctx.restore();
+  txt(ctx, num(n), 220, 74, {size:30, w:850, color:C.you, alpha:a});
+  txt(ctx, 'of 1,000', 220 + measure(ctx, num(n), 30, 850) + 8, 74, {size:12.5, w:700, color:C.muted, alpha:a});
+  txt(ctx, 'still watching at ' + st1.s.toFixed(1) + ' s', 220, 100, {size:12.5, w:700, alpha:a});
+  txt(ctx, `${num(1000 - n)} of 1,000 gone by ${st1.s.toFixed(1)} s`, 16, 248, {size:13.5, w:800, alpha:a});
+}});
+const T1 = document.getElementById('t1');
+function set1(){
+  st1.s = +T1.value;
+  const n = Math.round(N1(st1.s));
+  document.getElementById('ot1').textContent = st1.s.toFixed(1) + ' s';
+  document.getElementById('f1').textContent = `At ${st1.s.toFixed(1)} s, ${num(n)} of 1,000 are still watching (${Math.round(n / 10)}%). ${num(1000 - n)} have gone.`;
+}
+T1.addEventListener('input', () => { set1(); s1.still(); });
+set1();
+
+/* ---------- 2 · hook rate and hold rate ---------- */
+const st2 = {hook:30, hold:43};
+const vals2 = () => { const imp = 10000, plays = Math.round(imp * st2.hook / 100); return [imp, plays, Math.round(plays * st2.hold / 100)]; };
+const s2 = scene('s2', {H:240, dur:1.8, draw(ctx, t){
+  const V = vals2(), names = ['Impressions', '3-second video plays', 'ThruPlays'];
+  const rate = [null, ['hook rate ' + st2.hook + '%', C.you], ['hold rate ' + st2.hold + '%', C.alt]];
+  V.forEach((v, i) => {
+    const y = 34 + i * 66, g = easeOut(seg(t, .15 + i * .35, .75 + i * .35)), w = Math.max(3, 368 * v / 10000 * g);
+    txt(ctx, names[i], 16, y - 9, {size:12.5, w:700, color:C.muted});
+    if (rate[i]) txt(ctx, rate[i][0], 384, y - 9, {size:13.5, w:850, color:rate[i][1], align:'right', alpha:seg(t, .5 + i * .35, .9 + i * .35)});
+    rrect(ctx, 16, y, 368, 26, 6); ctx.fillStyle = C.surface; ctx.fill(); ctx.lineWidth = 1; ctx.strokeStyle = C.line; ctx.stroke();
+    rrect(ctx, 16, y, w, 26, 6); ctx.fillStyle = i === 0 ? C.faint : i === 1 ? C.you : C.alt; ctx.fill();
+    const label = num(Math.round(v * g)), lw = measure(ctx, label, 14, 850);
+    if (w > lw + 20) txt(ctx, label, 16 + w - 10, y + 18, {size:14, w:850, color:i === 0 ? C.ink : C.onyou, align:'right'});
+    else txt(ctx, label, 16 + w + 8, y + 18, {size:14, w:850});
+  });
+  const V2 = V[2];
+  const last = `${num(V2)} of 10,000 people watched to 15 s or the end.`;
+  txt(ctx, last, 16, 226, {size:fit(ctx, last, 368, 13, 750), w:750, alpha:seg(t, 1.3, 1.8)});
+}});
+function set2(){
+  st2.hook = +document.getElementById('hk2').value; st2.hold = +document.getElementById('hd2').value;
+  const [imp, plays, thru] = vals2();
+  document.getElementById('ohk2').textContent = st2.hook + '%';
+  document.getElementById('ohd2').textContent = st2.hold + '%';
+  document.getElementById('f2').textContent = `Hook rate ${st2.hook}% = ${num(plays)} 3-second plays ÷ ${num(imp)} impressions. Hold rate ${st2.hold}% = ${num(thru)} ThruPlays ÷ ${num(plays)} 3-second plays.`;
+}
+['hk2', 'hd2'].forEach(id => document.getElementById(id).addEventListener('input', () => { set2(); s2.still(); }));
+set2();
+
+/* ---------- 3 · what a hook is made of ---------- */
+const L3 = [
+  {n:'Visual', weak:'A still product shot', strong:'A face, motion and a splash: a pattern break'},
+  {n:'Text on screen', weak:'Small and vague', strong:'Big, and names the problem'},
+  {n:'First spoken line', weak:'A slow warm-up', strong:'Gets to the point in one breath'}
+];
+const st3 = {from:[1, 0, 0], to:[1, 0, 0]};
+const v3 = (i, t) => lerp(st3.from[i], st3.to[i], easeIO(seg(t, 0, .6)));
+function person(ctx, x, y, r, col){
+  ctx.fillStyle = col;
+  ctx.beginPath(); ctx.arc(x, y, r, 0, TAU); ctx.fill();
+  ctx.beginPath(); ctx.arc(x, y + r * 2.5, r * 1.6, Math.PI, 0); ctx.closePath(); ctx.fill();
+}
+const s3 = scene('s3', {H:296, dur:.8, draw(ctx, t){
+  const PXL = 20, PYT = 14, PW = 150, PH = 268;
+  rrect(ctx, PXL, PYT, PW, PH, 20); ctx.fillStyle = C.ink; ctx.fill();
+  ctx.save(); rrect(ctx, PXL + 6, PYT + 6, PW - 12, PH - 12, 15); ctx.clip();
+  const vis = v3(0, t), tx = v3(1, t), sp = v3(2, t), cx = PXL + PW / 2;
+  ctx.fillStyle = C.surface; ctx.fillRect(PXL, PYT, PW, PH);
+  if (vis < 1){
+    ctx.save(); ctx.globalAlpha = 1 - vis;
+    ctx.fillStyle = C.bg; ctx.fillRect(PXL, PYT + 168, PW, 120);
+    bottle(ctx, cx, 150, 1.05);
+    ctx.restore();
+  }
+  if (vis > 0){
+    ctx.save(); ctx.globalAlpha = vis;
+    ctx.fillStyle = C.yousoft; ctx.fillRect(PXL, PYT, PW, PH);
+    person(ctx, cx - 18, 132, 19, C.you);
+    bottle(ctx, cx + 30, 150, .8, -.45);
+    ctx.fillStyle = C.alt;
+    [[cx + 16, 104, 4], [cx + 30, 96, 3], [cx + 42, 106, 4.5], [cx + 50, 94, 3], [cx + 24, 88, 2.5]].forEach(([x, y, r]) => { ctx.beginPath(); ctx.arc(x, y, r, 0, TAU); ctx.fill(); });
+    ctx.strokeStyle = C.ink; ctx.lineWidth = 2; ctx.lineCap = 'round';
+    [[PXL + 14, 120], [PXL + 10, 134], [PXL + 14, 148]].forEach(([x, y]) => { ctx.beginPath(); ctx.moveTo(x, y); ctx.lineTo(x + 12, y); ctx.stroke(); });
+    ctx.restore();
+  }
+  if (tx < 1) txt(ctx, 'New bottle collection', cx, 52, {size:11.5, w:600, color:C.muted, align:'center', alpha:1 - tx});
+  if (tx > 0){
+    ctx.save(); ctx.globalAlpha = tx; rrect(ctx, PXL + 12, 30, PW - 24, 50, 8); ctx.fillStyle = C.ink; ctx.fill(); ctx.restore();
+    para(ctx, 'Still forgetting to drink water?', cx, 50, PW - 36, {size:14, w:850, color:C.bg, align:'center', alpha:tx}, 18);
+  }
+  ctx.save(); rrect(ctx, PXL + 12, 206, PW - 24, 56, 8); ctx.fillStyle = C.surface; ctx.globalAlpha = .94; ctx.fill(); ctx.restore();
+  if (sp < 1) para(ctx, '“Hi everyone, so today I want to…”', cx, 228, PW - 40, {size:11.5, w:600, color:C.muted, align:'center', alpha:1 - sp}, 15);
+  if (sp > 0) para(ctx, '“This is why I stopped buying bottled water.”', cx, 224, PW - 36, {size:12, w:800, align:'center', alpha:sp}, 15);
+  ctx.restore();
+  const X = 190, W = 194;
+  let strong = 0;
+  L3.forEach((L, i) => {
+    const y = 34 + i * 66, on = st3.to[i] === 1; if (on) strong++;
+    txt(ctx, L.n, X, y, {size:13, w:850});
+    const chip = on ? 'strong' : 'weak', cw = measure(ctx, chip, 11.5, 800) + 14;
+    rrect(ctx, X + W - cw, y - 13, cw, 18, 9);
+    if (on){ ctx.fillStyle = C.you; ctx.fill(); } else { ctx.lineWidth = 1.2; ctx.strokeStyle = C.faint; ctx.stroke(); }
+    txt(ctx, chip, X + W - cw / 2, y, {size:11.5, w:800, color:on ? C.onyou : C.muted, align:'center'});
+    para(ctx, on ? L.strong : L.weak, X, y + 19, W, {size:12, w:600, color:C.muted}, 15);
+  });
+  txt(ctx, 'Stop power (illustration)', X, 238, {size:12, w:700, color:C.muted});
+  const sw = (W - 8) / 3;
+  for (let k = 0; k < 3; k++){
+    rrect(ctx, X + k * (sw + 4), 248, sw, 14, 4);
+    if (k < strong){ ctx.fillStyle = C.you; ctx.fill(); } else { ctx.fillStyle = C.line; ctx.fill(); }
+  }
+  txt(ctx, strong + ' of 3 layers strong', X, 284, {size:13, w:850, color:strong === 3 ? C.you : C.ink});
+}});
+const BTN3 = [...document.querySelectorAll('#s3 [data-layer]')];
+function say3(){
+  const s = st3.to.map((v, i) => L3[i].n.toLowerCase() + (v ? ' strong' : ' weak')).join(', ');
+  document.getElementById('f3').textContent = `${st3.to.filter(Boolean).length} of 3 layers strong: ${s}.`;
+}
+BTN3.forEach((b, i) => b.addEventListener('click', () => {
+  st3.from = st3.to.map((v, j) => v3(j, s3.t));
+  st3.to = st3.to.slice(); st3.to[i] = st3.to[i] ? 0 : 1;
+  b.setAttribute('aria-pressed', String(!!st3.to[i]));
+  say3(); s3.play(0);
+}));
+say3();
+
+/* ---------- 4 · the modular ad ---------- */
+const MOD4 = [
+  {n:'Hook', opts:['“Still forgetting to drink water?”', '“I stopped buying bottled water.”', '“Watch me fill this with ice at 7 am.”']},
+  {n:'Sales sequence', opts:['Problem → solution → product demo', 'A day in the life with the bottle', 'Side-by-side test with a cheap bottle']},
+  {n:'Proof', opts:['Three short customer clips', 'Star rating and a review quote', 'The ice is still there at 6 pm']},
+  {n:'End card', opts:['Bundle of two · Shop now', 'Free gift · Get yours', 'Limited colour · Shop the drop']}
+];
+const BLK4 = [{n:'Hook', a:0, b:3, m:0}, {n:'Problem', a:3, b:6, m:1}, {n:'Solution', a:6, b:10, m:1}, {n:'Product', a:10, b:13, m:1}, {n:'Proof', a:13, b:16, m:2}, {n:'End card', a:16, b:20, m:3}];
+const SRC4 = ['Ad A', 'Ad B', 'Ad C'];
+const col4 = k => [C.you, C.alt, C.muted][k];
+function fill4(ctx, k){
+  if (k === 0){ ctx.fillStyle = C.yousoft; ctx.fill(); }
+  else if (k === 1){ ctx.fillStyle = C.altsoft; ctx.fill(); }
+  else { ctx.fillStyle = C.surface; ctx.fill(); }
+}
+const st4 = {src:[0, 1, 0, 2], swap:-1};
+const PX4 = s => 16 + s / 20 * 368;
+const s4 = scene('s4', {H:304, dur:2, draw(ctx, t){
+  txt(ctx, 'One 20-second example ad, built from parts', 16, 20, {size:12.5, w:700, color:C.muted});
+  BLK4.forEach((b, i) => {
+    const k = st4.src[b.m];
+    const g = st4.swap < 0 ? easeOut(seg(t, .1 + i * .12, .45 + i * .12)) : 1;
+    const flash = st4.swap === b.m ? 1 - seg(t, .2, .9) : 0;
+    if (g <= 0) return;
+    const x = PX4(b.a) + 1, w = PX4(b.b) - PX4(b.a) - 2, y = 32 - (1 - g) * 18;
+    ctx.save(); ctx.globalAlpha = g;
+    rrect(ctx, x, y, w, 40, 7); fill4(ctx, k); ctx.lineWidth = 2 + flash * 2; ctx.strokeStyle = col4(k); ctx.stroke();
+    ctx.restore();
+    txt(ctx, b.n, x + w / 2, y + 25, {size:fit(ctx, b.n, w - 6, 12.5, 800), w:800, align:'center', alpha:g});
+  });
+  txt(ctx, '0 s', 16, 92, {size:11.5, w:600, color:C.muted});
+  txt(ctx, '20 s', 384, 92, {size:11.5, w:600, color:C.muted, align:'right'});
+  const bk = seg(t, .9, 1.2);
+  ctx.save(); ctx.globalAlpha = bk; ctx.strokeStyle = C.muted; ctx.lineWidth = 1.5;
+  ctx.beginPath(); ctx.moveTo(PX4(3) + 2, 78); ctx.lineTo(PX4(3) + 2, 84); ctx.lineTo(PX4(13) - 2, 84); ctx.lineTo(PX4(13) - 2, 78); ctx.stroke(); ctx.restore();
+  txt(ctx, 'sales sequence', PX4(8), 100, {size:12, w:700, color:C.muted, align:'center', alpha:bk});
+  MOD4.forEach((M, i) => {
+    const k = st4.src[i], y = 116 + i * 46;
+    const g = st4.swap < 0 ? easeOut(seg(t, .9 + i * .15, 1.4 + i * .15)) : st4.swap === i ? easeOut(seg(t, 0, .5)) : 1;
+    const dx = (1 - g) * 18;
+    ctx.save(); ctx.globalAlpha = g;
+    rrect(ctx, 16 + dx, y, 368, 40, 8); fill4(ctx, k); ctx.lineWidth = 1.5; ctx.strokeStyle = col4(k); ctx.stroke();
+    ctx.restore();
+    txt(ctx, M.n, 28 + dx, y + 16, {size:12, w:700, color:C.muted, alpha:g});
+    txt(ctx, 'from ' + SRC4[k], 372 + dx, y + 16, {size:12, w:850, color:k === 2 ? C.ink : col4(k), align:'right', alpha:g});
+    txt(ctx, M.opts[k], 28 + dx, y + 33, {size:fit(ctx, M.opts[k], 340, 13.5, 800), w:800, alpha:g});
+  });
+}});
+function say4(){ document.getElementById('f4').textContent = MOD4.map((M, i) => `${M.n} from ${SRC4[st4.src[i]]}`).join(', ') + '.'; }
+document.querySelectorAll('#s4 [data-mod]').forEach(b => b.addEventListener('click', () => {
+  const i = +b.dataset.mod; st4.src[i] = (st4.src[i] + 1) % 3; st4.swap = i; say4(); s4.play(0);
+}));
+say4();
+
+/* ---------- 5 · format and safe zones ---------- */
+const st5 = {from:0, to:0};
+const FX = 20, FY = 16, FW = 162, FH = 288, CY0 = FY + (FH - FW * 5 / 4) / 2, CY1 = CY0 + FW * 5 / 4;
+const s5 = scene('s5', {H:320, dur:.8, autoplay:false, draw(ctx, t){
+  const v = lerp(st5.from, st5.to, easeIO(seg(t, 0, .7))), cx = FX + FW / 2;
+  ctx.save(); rrect(ctx, FX, FY, FW, FH, 12); ctx.clip();
+  ctx.fillStyle = C.yousoft; ctx.fillRect(FX, FY, FW, FH);
+  const SZ = {x:FX + 10, y:FY + 50, w:FW - 54, h:160}, scx = SZ.x + SZ.w / 2;
+  rrect(ctx, SZ.x + 8, 82, SZ.w - 16, 52, 8); ctx.fillStyle = C.ink; ctx.fill();
+  para(ctx, 'Thirsty by 3 pm?', scx, 103, SZ.w - 28, {size:13.5, w:850, color:C.bg, align:'center'}, 17);
+  person(ctx, scx - 18, 170, 14, C.you);
+  bottle(ctx, scx + 22, 188, .62, -.3);
+  const o = 1 - v;
+  if (o > 0){
+    ctx.save(); ctx.globalAlpha = o;
+    ctx.fillStyle = C.losssoft; ctx.fillRect(FX, FY, FW, 40); ctx.fillRect(FX, 230, FW, FY + FH - 230); ctx.fillRect(FX + FW - 34, 122, 34, 108);
+    ctx.fillStyle = C.loss; ctx.globalAlpha = o * .8;
+    rrect(ctx, FX + 10, FY + 14, 60, 10, 5); ctx.fill();
+    [140, 166, 192, 214].forEach(y => { ctx.beginPath(); ctx.arc(FX + FW - 17, y, 7, 0, TAU); ctx.fill(); });
+    rrect(ctx, FX + 10, 246, 92, 9, 4.5); ctx.fill();
+    rrect(ctx, FX + 10, 262, 124, 9, 4.5); ctx.fill();
+    rrect(ctx, FX + 10, 278, 70, 9, 4.5); ctx.fill();
+    ctx.restore();
+    ctx.save(); ctx.globalAlpha = o; ctx.setLineDash([5, 4]); ctx.strokeStyle = C.you; ctx.lineWidth = 2;
+    rrect(ctx, SZ.x, SZ.y, SZ.w, SZ.h, 8); ctx.stroke(); ctx.restore();
+  }
+  if (v > 0){
+    ctx.save(); ctx.globalAlpha = v * .82; ctx.fillStyle = C.bg;
+    ctx.fillRect(FX, FY, FW, CY0 - FY); ctx.fillRect(FX, CY1, FW, FY + FH - CY1); ctx.restore();
+  }
+  ctx.restore();
+  rrect(ctx, FX, FY, FW, FH, 12); ctx.lineWidth = 2; ctx.strokeStyle = C.ink; ctx.stroke();
+  if (v > 0){ ctx.save(); ctx.globalAlpha = v; rrect(ctx, FX - 3, CY0, FW + 6, CY1 - CY0, 6); ctx.lineWidth = 3; ctx.strokeStyle = C.alt; ctx.stroke(); ctx.restore(); }
+  const X = 200, W = 184;
+  const panel = (a, title, items) => {
+    if (a <= 0) return;
+    txt(ctx, title, X, 40, {size:fit(ctx, title, W, 15, 850), w:850, alpha:a});
+    let y = 74;
+    items.forEach(([sw, s]) => {
+      ctx.save(); ctx.globalAlpha = a; sw(X, y - 12); ctx.restore();
+      const n = para(ctx, s, X + 24, y, W - 24, {size:12.5, w:650, alpha:a}, 16);
+      y += n * 16 + 18;
+    });
+  };
+  panel(1 - v, 'Reels and Stories · 9:16', [
+    [(x, y) => { ctx.fillStyle = C.losssoft; ctx.fillRect(x, y, 16, 16); ctx.fillStyle = C.loss; ctx.fillRect(x + 4, y + 6, 8, 4); }, 'The app’s buttons, account name and caption sit here'],
+    [(x, y) => { ctx.setLineDash([4, 3]); ctx.strokeStyle = C.you; ctx.lineWidth = 2; ctx.strokeRect(x + 1, y + 1, 14, 14); }, 'Safe zone: keep words and faces here'],
+    [(x, y) => { ctx.fillStyle = C.ink; ctx.fillRect(x, y + 3, 16, 10); }, 'The headline and the face sit inside it, so nothing covers them']
+  ]);
+  panel(v, 'Feed · 4:5', [
+    [(x, y) => { ctx.strokeStyle = C.alt; ctx.lineWidth = 3; ctx.strokeRect(x + 1.5, y + 1.5, 13, 13); }, 'A 4:5 cut of the same video'],
+    [(x, y) => { ctx.fillStyle = C.faint; ctx.fillRect(x, y, 16, 16); }, 'The top and bottom are trimmed'],
+    [(x, y) => { ctx.fillStyle = C.ink; ctx.fillRect(x, y + 3, 16, 10); }, 'Words and faces in the middle survive both cuts']
+  ]);
+}});
+const BTN5 = [...document.querySelectorAll('#s5 [data-fmt]')];
+function pick5(m, animate){
+  st5.from = animate ? lerp(st5.from, st5.to, easeIO(seg(s5.t, 0, .7))) : m; st5.to = m;
+  BTN5.forEach((b, j) => b.setAttribute('aria-pressed', String(j === m)));
+  document.getElementById('f5').textContent = m ? 'Feed 4:5: the same video, cut shorter. The top and bottom go; the middle stays.' : 'Reels 9:16: the app covers the top, the bottom and the right edge. Keep the message in the safe zone.';
+  if (animate) s5.play(0); else s5.still();
+}
+BTN5.forEach((b, i) => b.addEventListener('click', () => pick5(i, true)));
+s5.cv.addEventListener('click', () => pick5(st5.to ? 0 : 1, true));
+pick5(0, false);
+
+/* ---------- 6 · swap one part at a time ---------- */
+const MET6 = ['Hook rate', 'Hold rate', 'Link CTR', 'Conv. rate'];
+const PART6 = ['Hook', 'Body', 'Offer + CTA', 'Page'];
+const USUAL6 = [30, 40, 1.2, 2.5];
+const SYM6 = [
+  {v:[14, 41, 1.1, 2.4], msg:'Few people stop. Change the hook and keep the rest.'},
+  {v:[31, 16, 1.0, 2.6], msg:'They stop, then leave. Keep the hook and change the body.'},
+  {v:[32, 44, .4, 2.5], msg:'They watch but don’t click. Change the offer or the call to action.'},
+  {v:[29, 42, 1.9, .7], msg:'They click but don’t buy. The ad did its job, so fix the page.'}
+];
+const fmt6 = (i, x) => i < 2 ? Math.round(x) + '%' : x.toFixed(1) + '%';
+const st6 = {i:0};
+const s6 = scene('s6', {H:286, dur:1.3, draw(ctx, t){
+  const S = SYM6[st6.i], a = easeOut(seg(t, .1, .5)), b = easeOut(seg(t, .45, .95));
+  txt(ctx, 'Read left to right. Stop at the first low number.', 16, 20, {size:12.5, w:700, color:C.muted});
+  MET6.forEach((m, i) => {
+    const x = 16 + i * 94, bad = i === st6.i;
+    rrect(ctx, x, 30, 86, 80, 10); ctx.fillStyle = bad ? C.losssoft : C.surface; ctx.fill();
+    ctx.lineWidth = bad ? 2.5 * a + .5 : 1.5; ctx.strokeStyle = bad ? C.loss : C.line; ctx.stroke();
+    txt(ctx, m, x + 43, 50, {size:fit(ctx, m, 78, 12, 700), w:700, color:C.muted, align:'center'});
+    txt(ctx, fmt6(i, S.v[i]), x + 43, 80, {size:22, w:850, color:bad ? C.loss : C.ink, align:'center'});
+    txt(ctx, 'usual ' + fmt6(i, USUAL6[i]), x + 43, 99, {size:11.5, w:600, color:C.muted, align:'center'});
+    const on = bad;
+    arrow(ctx, x + 43, 116, x + 43, 168, {color:on ? C.you : C.line, w:on ? 3 : 1.5, head:on ? 9 : 6, alpha:on ? Math.max(.3, b) : 1});
+    rrect(ctx, x, 172, 86, 48, 10);
+    if (on){ ctx.save(); ctx.globalAlpha = b; ctx.fillStyle = C.you; ctx.fill(); ctx.restore(); ctx.save(); ctx.globalAlpha = 1 - b; ctx.fillStyle = C.surface; ctx.fill(); ctx.restore(); }
+    else { ctx.fillStyle = C.surface; ctx.fill(); }
+    ctx.lineWidth = 1.5; ctx.strokeStyle = on ? C.you : C.line; ctx.stroke();
+    txt(ctx, PART6[i], x + 43, 201, {size:fit(ctx, PART6[i], 78, 13.5, 850), w:850, color:on && b > .5 ? C.onyou : C.ink, align:'center'});
+  });
+  para(ctx, S.msg, 16, 250, 368, {size:14, w:850, alpha:b}, 19);
+}});
+const BTN6 = [...document.querySelectorAll('#s6 [data-sym]')];
+function pick6(i, animate){
+  st6.i = i;
+  BTN6.forEach((b, j) => b.setAttribute('aria-pressed', String(j === i)));
+  const S = SYM6[i];
+  document.getElementById('f6').textContent = `${MET6[i]} is ${fmt6(i, S.v[i])} against a usual ${fmt6(i, USUAL6[i])}. ${S.msg}`;
+  if (animate) s6.play(0); else s6.render();
+}
+BTN6.forEach((b, i) => b.addEventListener('click', () => pick6(i, true)));
+pick6(0, false);
+})();
+</script>
+</body>
+</html>

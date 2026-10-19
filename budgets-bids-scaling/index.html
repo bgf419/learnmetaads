@@ -1,0 +1,579 @@
+<!doctype html>
+<html lang="en">
+<head>
+<!-- head -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Budgets, bids and scaling · Lesson 8 · Learn Meta Ads</title>
+<meta name="description" content="Bid strategies, why the next dollar buys less than the last, and how to grow spend without wrecking cost per result.">
+<link rel="canonical" href="https://learnmetaads.com/budgets-bids-scaling/">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Learn Meta Ads">
+<meta property="og:title" content="Budgets, bids and scaling · Lesson 8 · Learn Meta Ads">
+<meta property="og:description" content="Bid strategies, why the next dollar buys less than the last, and how to grow spend without wrecking cost per result.">
+<meta property="og:url" content="https://learnmetaads.com/budgets-bids-scaling/">
+<meta property="og:image" content="https://learnmetaads.com/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#F1F3F7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0D1016" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="../favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Recursive:slnt,wght,CASL,CRSV,MONO@-15..0,300..1000,0..1,0..1,0..1&display=swap">
+<link rel="stylesheet" href="../assets/site.css">
+<script>try{var t=localStorage.getItem('lma-theme');if(t==='light'||t==='dark')document.documentElement.dataset.theme=t}catch(e){}</script>
+<!-- /head -->
+</head>
+<body>
+<!-- bar -->
+<header class="bar"><div class="bar-in">
+<a class="mark" href="../"><svg width="22" height="22" viewBox="0 0 22 22" aria-hidden="true"><rect x="1" y="1" width="20" height="20" rx="5" style="fill:var(--you)"/><rect x="5.5" y="7" width="11" height="8" rx="2" style="fill:none;stroke:var(--on-you)" stroke-width="1.6" stroke-dasharray="2.6 1.8"/></svg><span>Learn <b>Meta</b> Ads</span></a>
+<nav class="bar-nav" aria-label="Site"><a href="../#lessons">All lessons</a><button class="btn" type="button" data-theme-btn>Theme: auto</button></nav>
+</div></header>
+<!-- /bar -->
+<main class="wrap">
+  <header class="hero">
+    <p class="eyebrow">Lesson 8 · Media buying · 11 min</p>
+    <h1>Budgets, bids and <span>scaling</span></h1>
+    <p class="lede"><a href="../what-you-can-pay/">Lesson 3</a> set the most you can pay for a sale: $27 in its example. <a href="../account-structure/">Lesson 7</a> built the account. Now spend the money: choose how Meta bids, see why each extra dollar buys less, and grow without paying more for a sale than it’s worth.</p>
+    <ul class="toc">
+      <li><a href="#s1"><b>1</b> Bid strategies</a></li>
+      <li><a href="#s2"><b>2</b> Each dollar buys less</a></li>
+      <li><a href="#s3"><b>3</b> Average vs extra cost</a></li>
+      <li><a href="#s4"><b>4</b> Raise in steps</a></li>
+      <li><a href="#s5"><b>5</b> Scale with concepts</a></li>
+      <li><a href="#s6"><b>6</b> Goals are brakes</a></li>
+      <li><a href="#recap"><b>→</b> Five-line recap</a></li>
+    </ul>
+  </header>
+
+  <section class="step" id="s1">
+    <div class="copy">
+      <p class="stepno">Step 1 of 6</p>
+      <h2>Five bid strategies, three kinds</h2>
+      <p>A bid strategy tells Meta how to spend your budget in the auction. Meta sorts its five strategies into three kinds.</p>
+      <p>Spend-based strategies spend the budget and get what they can: Highest volume goes for the most conversions, Highest value for the most valuable purchases. Goal-based strategies aim for an average: a cost per result or a return on ad spend. The manual one, Bid cap, sets the most Meta may bid in any auction.</p>
+      <p>Older guides say “lowest cost” and “cost cap”. Meta’s current help page doesn’t use those names. The closest current ones are Highest volume and Cost per result goal.</p>
+      <p class="data meta"><span class="label">Meta says</span><span>Three groups: spend-based (Highest volume, Highest value), goal-based (Cost per result goal, ROAS goal) and manual (Bid cap). For goal-based bidding, Meta recommends “50–100 or more weekly conversions”, and it guarantees neither goal.</span></p>
+      <p class="so"><span class="label">So</span><span>Pick the strategy by what you want held steady: the budget, the average result, or the bid.</span></p>
+    </div>
+    <figure class="stage">
+      <div class="stage-head"><span class="tag">Meta says · tap a strategy</span></div>
+      <canvas class="tap" role="img" aria-label="Five bid strategies in three groups: Highest volume and Highest value are spend-based, Cost per result goal and ROAS goal are goal-based, and Bid cap is manual. A panel shows what you set and what Meta does for the one you pick."></canvas>
+      <div class="btns" role="group" aria-label="Pick a bid strategy" id="bt1"></div>
+      <p class="formula" id="bid1" aria-live="polite"></p>
+    </figure>
+  </section>
+
+  <section class="step" id="s2">
+    <div class="copy">
+      <p class="stepno">Step 2 of 6</p>
+      <h2>Each extra dollar buys less</h2>
+      <p>The cheapest sales come first. Meta’s auction favours ads it predicts people will act on, so a small budget goes to the people most likely to buy. A bigger budget has to reach further, to people less likely to buy, and each of their sales costs more.</p>
+      <p>That gives a curve that bends. In this example the first $100 a day buys 6.3 sales. At $500 a day, the last $100 buys 4.3. At $2,000 a day, the last $100 buys less than one.</p>
+      <p>The curve is the course’s model, with made-up numbers. Your account has its own, and you only see it by changing the budget.</p>
+      <p class="data meta"><span class="label">Meta says</span><span>The auction picks the ad with the highest “total value”, which combines the bid, estimated action rates and ad quality, so a more relevant ad can beat a higher bid.</span></p>
+      <p class="so"><span class="label">So</span><span>Doubling the budget won’t double the sales. Expect every step up to cost more per sale.</span></p>
+    </div>
+    <figure class="stage">
+      <div class="stage-head"><span class="tag">Example numbers · one ad set</span><div class="btns"><button class="btn" type="button" data-replay>Replay</button></div></div>
+      <canvas role="img" aria-label="A curve of sales a day against daily spend from $0 to $2,000. It rises steeply at first and then flattens. The first $100 of spend and the last $100 before your chosen spend are highlighted, so you can compare how many sales each buys."></canvas>
+      <div class="sliders one">
+        <label for="sp2"><span class="row"><span>Daily spend</span><output id="osp2" for="sp2">$500</output></span><input id="sp2" type="range" min="100" max="2000" step="50" value="500"></label>
+      </div>
+      <dl class="readout" id="out2"></dl>
+    </figure>
+  </section>
+
+  <section class="step" id="s3">
+    <div class="copy">
+      <p class="stepno">Step 3 of 6</p>
+      <h2>Watch what the extra sales cost</h2>
+      <p>Ads Manager shows the average cost per result: everything you spent divided by every result. When you raise the budget, the average rises slowly, because the cheap sales from before are still in it.</p>
+      <p>What matters is what the extra sales cost. Slide the spend up. On this curve the extra sales pass the $27 breakeven at $588 a day, while the average is still $19.84. The average doesn’t reach $27 until $1,318 a day, and by then the profit is gone.</p>
+      <p>Profit peaks where the extra sales cost exactly breakeven: about $212 a day, at $588. Past that point, every extra sale loses money even while the average looks healthy.</p>
+      <p class="data meta"><span class="label">Meta says</span><span>Cost per result is the average cost per result, and what counts as a result depends on the performance goal.</span></p>
+      <p class="do"><span class="label">Check yours</span><span>Take two weeks at different budgets. Work out (new spend − old spend) ÷ (new sales − old sales). That’s what your extra sales cost. Compare it with your breakeven from lesson 3.</span></p>
+      <p class="so"><span class="label">So</span><span>Keep raising the budget while the extra sales cost less than your breakeven. Stop when they cost more, whatever the average says.</span></p>
+    </div>
+    <figure class="stage">
+      <div class="stage-head"><span class="tag">Example numbers · $27 breakeven</span><div class="btns"><button class="btn" type="button" data-replay>Replay</button></div></div>
+      <canvas role="img" aria-label="Two lines against daily spend. The average cost per sale rises slowly. The cost of the extra sales rises fast and crosses the dashed $27 breakeven line at $588 a day; the average only crosses it at $1,318. A marker follows the spend you choose."></canvas>
+      <div class="sliders one">
+        <label for="sp3"><span class="row"><span>Daily spend</span><output id="osp3" for="sp3">$500</output></span><input id="sp3" type="range" min="50" max="2000" step="50" value="500"></label>
+      </div>
+      <dl class="readout" id="out3"></dl>
+      <ul class="legend">
+        <li><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><rect x="1" y="5" width="10" height="3" rx="1" style="fill:var(--alt)"/></svg>average cost per sale</li>
+        <li><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><rect x="1" y="5" width="10" height="3" rx="1" style="fill:var(--you)"/></svg>cost of the extra sales</li>
+        <li><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><rect x="1" y="5" width="4" height="3" style="fill:var(--loss)"/><rect x="7" y="5" width="4" height="3" style="fill:var(--loss)"/></svg>$27 breakeven</li>
+      </ul>
+    </figure>
+  </section>
+
+  <section class="step" id="s4">
+    <div class="copy">
+      <p class="stepno">Step 4 of 6</p>
+      <h2>Raise the budget in steps you can read</h2>
+      <p>Meta counts a large budget change as a possible significant edit, which can send the ad set back into learning. Its example: $100 to $1,000 a day may count; $100 to $101 likely won’t.</p>
+      <p>A big jump has a second problem: it mixes cheap and expensive extra sales into one number. In the top lane, going from $100 to $1,000 buys extra sales at $25 each on average, which looks fine against $27. But the last of them cost $41, and profit ends at $138 a day.</p>
+      <p>The bottom lane raises the budget a step at a time and reads what each step’s extra sales cost. When a step comes in at $28, over breakeven, it gets undone. That lane ends at $500 a day and $208 a day in profit.</p>
+      <p>Meta gives no safe percentage. The course’s rule: make each step small enough that you can read what it bought, and give it a few days before the next. The step sizes here are Example numbers, not a rule.</p>
+      <p class="data meta"><span class="label">Meta says</span><span>A change to the budget, bid, goal or spending limit may count as a significant edit, depending on its size: $100 to $1,000 may count, while $100 to $101 likely won’t.</span></p>
+      <p class="so"><span class="label">So</span><span>Scale in steps and judge each one by its extra sales. Keep the steps that pay and undo the one that doesn’t.</span></p>
+    </div>
+    <figure class="stage">
+      <div class="stage-head"><span class="tag">Example numbers · 18 days</span><div class="btns"><button class="btn" type="button" data-replay>Replay</button></div></div>
+      <canvas role="img" aria-label="Two lanes of daily budget over 18 days. Top lane: one jump from $100 to $1,000 a day, marked may restart learning; its extra sales average $25 but the last cost $41, and it ends at $138 a day profit. Bottom lane: steps of $100, $150, $225, $340, $500 and $750, each labelled with what its extra sales cost: $17, $18, $20, $23, then $28, which is over breakeven, so the budget goes back to $500 and ends at $208 a day profit."></canvas>
+    </figure>
+  </section>
+
+  <section class="step" id="s5">
+    <div class="copy">
+      <p class="stepno">Step 5 of 6</p>
+      <h2>New concepts move the curve</h2>
+      <p>More budget slides you further along the same curve, to buyers who cost more. New concepts do something budget can’t: they reach people your current ads don’t move, so the whole curve shifts up and out.</p>
+      <p>In this example both options spend $1,000 a day. With more budget alone you get 42 sales, and the extra ones cost $41. With new concepts the same $1,000 buys 51 sales, the extra ones cost $26, and the point where extra sales pass $27 moves from $588 to $1,058 a day.</p>
+      <p>That’s lesson 1’s idea at budget scale: different ads find different people. Lesson 4 shows how to make concepts that are genuinely different.</p>
+      <p class="so"><span class="label">So</span><span>When extra sales get expensive, the fix is usually new concepts, not more budget.</span></p>
+    </div>
+    <figure class="stage">
+      <div class="stage-head"><span class="tag">Example numbers · $1,000 a day</span><div class="btns" role="group" aria-label="How to grow"><button class="btn" type="button" data-mode="0" aria-pressed="true">More budget</button><button class="btn" type="button" data-mode="1" aria-pressed="false">More concepts</button></div></div>
+      <canvas role="img" aria-label="Sales a day against daily spend, with a marker at $1,000 a day. With more budget, the marker sits on the original curve at 42 sales. With more concepts, the curve shifts up and out and the same $1,000 buys 51 sales."></canvas>
+      <dl class="readout" id="out5"></dl>
+    </figure>
+  </section>
+
+  <section class="step" id="s6">
+    <div class="copy">
+      <p class="stepno">Step 6 of 6</p>
+      <h2>Goals and caps are brakes</h2>
+      <p>A Cost per result goal tells Meta the average you want. In this model, Meta spends while the average stays at or under your goal, then stops, even if budget is left.</p>
+      <p>Set a $20 goal on a $1,500 budget and delivery stops near $606 a day, close to the most profitable spend. Set the goal at breakeven, $27, and it spends $1,318 for about zero profit. Above about $29, this budget never reaches the goal, so all of it gets spent.</p>
+      <p>A goal can’t make sales cheaper. It only stops Meta buying the expensive ones. Bid cap does the same one auction at a time.</p>
+      <p>The course’s view: prefer a Cost per result goal at your target over Highest volume, because it protects the margin on every sale. It works best once the ad set gets the weekly conversions Meta recommends for goal-based bidding.</p>
+      <p class="data meta"><span class="label">Meta says</span><span>A Cost per result goal keeps the average cost near a target, and a ROAS goal keeps the average return near one. Meta guarantees neither. Bid cap sets the maximum bid in every auction and is meant for advertisers who know their predicted conversion rates.</span></p>
+      <p class="so"><span class="label">So</span><span>Set the goal at your target, not at breakeven. A goal at breakeven lets Meta spend your profit.</span></p>
+    </div>
+    <figure class="stage">
+      <div class="stage-head"><span class="tag">Example numbers · $1,500 budget</span></div>
+      <canvas role="img" aria-label="Average cost per sale against daily spend up to a $1,500 budget, with a dashed line for your goal and one for the $27 breakeven. Delivery stops where the average reaches the goal; the spend to the left is shaded and the rest of the budget is marked unspent."></canvas>
+      <div class="sliders one">
+        <label for="g6"><span class="row"><span>Cost per result goal</span><output id="og6" for="g6">$20</output></span><input id="g6" type="range" min="16" max="35" step="1" value="20"></label>
+      </div>
+      <dl class="readout" id="out6"></dl>
+      <ul class="legend">
+        <li><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><rect x="1" y="5" width="10" height="3" rx="1" style="fill:var(--alt)"/></svg>average cost per sale</li>
+        <li><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><rect x="1" y="5" width="4" height="3" style="fill:var(--you)"/><rect x="7" y="5" width="4" height="3" style="fill:var(--you)"/></svg>your goal</li>
+        <li><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><rect x="1" y="5" width="4" height="3" style="fill:var(--loss)"/><rect x="7" y="5" width="4" height="3" style="fill:var(--loss)"/></svg>$27 breakeven</li>
+        <li><svg width="12" height="12" viewBox="0 0 12 12" aria-hidden="true"><rect x="1" y="1" width="10" height="10" rx="2" style="fill:var(--you-soft)"/></svg>spent</li>
+      </ul>
+    </figure>
+  </section>
+
+  <section class="recap" id="recap">
+    <p class="eyebrow">The whole thing</p>
+    <h2>Five lines to remember</h2>
+    <ol>
+      <li><span>Bid strategies come in three kinds: spend-based (Highest volume, Highest value), goal-based (Cost per result goal, ROAS goal) and manual (Bid cap).</span></li>
+      <li><span>More budget buys pricier sales: each extra dollar buys less than the one before.</span></li>
+      <li><span>Judge a budget increase by what the extra sales cost, not by the average.</span></li>
+      <li><span>Raise budgets in steps you can read, and undo a step whose extra sales cost more than your breakeven.</span></li>
+      <li><span>New concepts shift the curve out. Goals and caps only stop the spending.</span></li>
+    </ol>
+  </section>
+
+  <footer class="sources">
+    <h3>Where the numbers come from</h3>
+    <ul>
+      <li><b>Example numbers</b> in steps 2 to 6 come from one made-up spend curve, chosen so the arithmetic is easy to follow. The $27 breakeven matches lesson 3’s example.</li>
+      <li>Bid strategies, their three groups, what each one does, the weekly-conversion recommendation and “guarantees neither”: <a href="https://www.facebook.com/business/help/1619591734742116">Meta Business Help Center, bid strategies</a>.</li>
+      <li>Auction “total value”: <a href="https://www.facebook.com/business/help/430291176997542">Meta Business Help Center, the ad auction</a>.</li>
+      <li>Cost per result: <a href="https://developers.meta.com/vr/resources/optimize-ad-campaign/">Meta for Developers</a>.</li>
+      <li>Budget changes as significant edits: <a href="https://www.facebook.com/business/help/316478108955072">Meta Business Help Center</a>. Learning phase: <a href="https://www.facebook.com/business/help/112167992830700">Meta Business Help Center, learning phase</a>.</li>
+    </ul>
+  </footer>
+
+<!-- pager -->
+<nav class="pager" aria-label="Lessons">
+<a class="prev" href="../account-structure/"><small>← Lesson 7</small><span>Account structure and learning</span></a>
+<a class="next" href="../testing/"><small>Lesson 9 →</small><span>Testing without fooling yourself</span></a>
+</nav>
+<!-- /pager -->
+</main>
+<!-- foot -->
+<footer class="foot"><div class="foot-in">
+<p>Written by <b>Brett Friedman</b> · <a href="https://thecreativestrategyagency.com/">The Creative Strategy Agency</a>.</p>
+<p>Learn Meta Ads is an independent guide. It is not affiliated with or endorsed by Meta Platforms, Inc.</p>
+</div></footer>
+<!-- /foot -->
+<script src="../assets/engine.js"></script>
+<script>
+(() => {
+'use strict';
+const {C, TAU, clamp, seg, easeIO, easeOut, lerp, rrect, txt, measure, money, num, scene} = LMA;
+
+/* wrap text to a width; returns the y of the last line */
+function wrap(ctx, s, x, y, maxW, lh, o){
+  let line = '', yy = y;
+  for (const w of s.split(' ')){
+    const t = line ? line + ' ' + w : w;
+    if (line && measure(ctx, t, o.size, o.w) > maxW){ txt(ctx, line, x, yy, o); line = w; yy += lh; }
+    else line = t;
+  }
+  if (line) txt(ctx, line, x, yy, o);
+  return yy;
+}
+
+/* ---------- the Example curve: sales a day for a daily spend ---------- */
+const BE = 27;
+const CUR = {A:200 / 3, K:1000};            /* first sale costs $15, flattening toward 66.7 a day */
+const NEW = {A:120, K:1800};                /* the same curve after new concepts */
+const sales = (S, p = CUR) => p.A * (1 - Math.exp(-S / p.K));
+const extra = (S, p = CUR) => p.K / p.A * Math.exp(S / p.K);   /* cost of the next sale */
+const avg = (S, p = CUR) => S <= 0 ? p.K / p.A : S / sales(S, p);
+const profit = (S, p = CUR) => BE * sales(S, p) - S;
+const turn = p => p.K * Math.log(BE / (p.K / p.A));               /* where extra sales pass $27 */
+
+/* a simple chart frame */
+function frame(P, o){
+  const X = v => P.x0 + v / P.xmax * (P.x1 - P.x0), Y = v => P.y1 - v / P.ymax * (P.y1 - P.y0);
+  return {X, Y, draw(ctx, a = 1){
+    ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = C.line; ctx.lineWidth = 1;
+    for (const v of o.yt){ ctx.beginPath(); ctx.moveTo(P.x0, Y(v)); ctx.lineTo(P.x1, Y(v)); ctx.stroke(); }
+    ctx.strokeStyle = C.faint; ctx.lineWidth = 1.4;
+    ctx.beginPath(); ctx.moveTo(P.x0, P.y0 - 4); ctx.lineTo(P.x0, P.y1); ctx.lineTo(P.x1, P.y1); ctx.stroke();
+    ctx.restore();
+    for (const v of o.yt) txt(ctx, o.fy(v), P.x0 - 7, Y(v) + 4, {size:12, w:600, align:'right', color:C.muted, alpha:a});
+    for (const v of o.xt) txt(ctx, o.fx(v), X(v), P.y1 + 18, {size:12, w:600, align:'center', color:C.muted, alpha:a});
+    if (o.title) txt(ctx, o.title, 16, 18, {size:12.5, w:700, color:C.muted, alpha:a});
+  }};
+}
+function plot(ctx, F, f, from, to, o){
+  ctx.save(); ctx.globalAlpha *= (o.alpha ?? 1); ctx.strokeStyle = o.color; ctx.lineWidth = o.lw ?? 3; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+  if (o.dash) ctx.setLineDash(o.dash);
+  if (o.clip){ ctx.beginPath(); ctx.rect(o.clip[0], o.clip[1], o.clip[2], o.clip[3]); ctx.clip(); }
+  ctx.beginPath();
+  const n = Math.max(2, Math.ceil((to - from) / 10));
+  for (let i = 0; i <= n; i++){ const S = from + (to - from) * i / n, x = F.X(S), y = F.Y(f(S)); i ? ctx.lineTo(x, y) : ctx.moveTo(x, y); }
+  ctx.stroke(); ctx.restore();
+}
+function dot(ctx, x, y, r, col, a = 1){
+  ctx.save(); ctx.globalAlpha *= a; ctx.fillStyle = col; ctx.strokeStyle = C.surface; ctx.lineWidth = 2.5;
+  ctx.beginPath(); ctx.arc(x, y, r, 0, TAU); ctx.fill(); ctx.stroke(); ctx.restore();
+}
+function diamond(ctx, x, y, r, col){
+  ctx.save(); ctx.fillStyle = col; ctx.strokeStyle = C.surface; ctx.lineWidth = 2;
+  ctx.beginPath(); ctx.moveTo(x, y - r); ctx.lineTo(x + r, y); ctx.lineTo(x, y + r); ctx.lineTo(x - r, y); ctx.closePath(); ctx.fill(); ctx.stroke(); ctx.restore();
+}
+function hline(ctx, F, v, x0, x1, col, a = 1){
+  ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = col; ctx.lineWidth = 2; ctx.setLineDash([6, 5]);
+  ctx.beginPath(); ctx.moveTo(x0, F.Y(v)); ctx.lineTo(x1, F.Y(v)); ctx.stroke(); ctx.restore();
+}
+function readout(id, rows){
+  document.getElementById(id).innerHTML = rows.map(([k, v, c]) => `<div${c ? ` class="${c}"` : ''}><dt>${k}</dt><dd>${v}</dd></div>`).join('');
+}
+
+/* ---------- 1 · bid strategies ---------- */
+const GR1 = [
+  {name:'Spend-based', items:[0, 1]},
+  {name:'Goal-based', items:[2, 3]},
+  {name:'Manual', items:[4]}
+];
+const BID1 = [
+  {name:'Highest volume', grp:'Spend-based', set:'A budget.', does:'Gets the most conversions for the budget.', note:'The cost per result is whatever the budget buys.'},
+  {name:'Highest value', grp:'Spend-based', set:'A budget.', does:'Spends the budget on the highest-value purchases.', note:'The cost per result is whatever the budget buys.'},
+  {name:'Cost per result goal', grp:'Goal-based', set:'A budget and a target cost per result.', does:'Keeps the average cost near your target.', note:'Not guaranteed. Meta recommends 50–100 or more weekly conversions.'},
+  {name:'ROAS goal', grp:'Goal-based', set:'A budget and a target return. 1.100 means 110%.', does:'Keeps the average return near your goal.', note:'Not guaranteed. Meta recommends 50–100 or more weekly conversions.'},
+  {name:'Bid cap', grp:'Manual', set:'A budget and the most Meta may bid in any auction.', does:'Never bids above your cap.', note:'Meant for advertisers who know their predicted conversion rates.'}
+];
+const st1 = {i:0};
+let chips1 = [];
+const s1 = scene('s1', {H:348, dur:1.6, draw(ctx, t, s){
+  const ctxFont = 13, padX = 12;
+  chips1 = [];
+  GR1.forEach((g, gi) => {
+    const yC = 20 + gi * 54, a = easeOut(seg(t, gi * .15, gi * .15 + .4));
+    txt(ctx, g.name, 16, yC, {size:12, w:700, color:C.muted, alpha:a});
+    let x = 16;
+    g.items.forEach(i => {
+      const b = BID1[i], w = measure(ctx, b.name, ctxFont, 760) + padX * 2, on = i === st1.i;
+      const box = {x, y:yC + 8, w, h:32, i};
+      chips1.push(box);
+      ctx.save(); ctx.globalAlpha *= a;
+      rrect(ctx, box.x, box.y, box.w, box.h, 16);
+      ctx.fillStyle = on ? C.you : C.surface; ctx.fill();
+      ctx.lineWidth = on ? 0 : 1.2; ctx.strokeStyle = C.line; if (!on) ctx.stroke();
+      ctx.restore();
+      txt(ctx, b.name, x + w / 2, yC + 29, {size:ctxFont, w:760, align:'center', color:on ? C.onyou : C.ink, alpha:a});
+      x += w + 8;
+    });
+  });
+  /* the panel */
+  const b = BID1[st1.i], pa = easeOut(seg(t, .9, 1.4)), py = 172;
+  ctx.save(); ctx.globalAlpha *= pa;
+  rrect(ctx, 16, py, 368, s.H - py - 8, 12); ctx.fillStyle = C.surface; ctx.fill(); ctx.lineWidth = 1.2; ctx.strokeStyle = C.line; ctx.stroke();
+  ctx.restore();
+  txt(ctx, b.name, 30, py + 30, {size:17, w:860, alpha:pa});
+  txt(ctx, b.grp, 370, py + 30, {size:12, w:700, align:'right', color:C.muted, alpha:pa});
+  let y = py + 58;
+  txt(ctx, 'You set', 30, y, {size:12, w:760, color:C.muted, alpha:pa});
+  y = wrap(ctx, b.set, 104, y, 266, 19, {size:14, w:600, alpha:pa}) + 26;
+  txt(ctx, 'Meta', 30, y, {size:12, w:760, color:C.you, alpha:pa});
+  y = wrap(ctx, b.does, 104, y, 266, 19, {size:14, w:760, color:C.you, alpha:pa}) + 28;
+  wrap(ctx, b.note, 30, y, 340, 18, {size:12.5, w:600, color:C.muted, alpha:pa});
+}});
+const bt1 = document.getElementById('bt1');
+BID1.forEach((b, i) => {
+  const el = document.createElement('button');
+  el.className = 'btn'; el.type = 'button'; el.textContent = b.name; el.dataset.i = i;
+  el.addEventListener('click', () => pick1(i, true));
+  bt1.appendChild(el);
+});
+function pick1(i, animate){
+  st1.i = i;
+  bt1.querySelectorAll('button').forEach((el, j) => el.setAttribute('aria-pressed', j === i ? 'true' : 'false'));
+  const b = BID1[i];
+  document.getElementById('bid1').textContent = `${b.name} (${b.grp.toLowerCase()}). You set: ${b.set.charAt(0).toLowerCase() + b.set.slice(1)} Meta ${b.does.charAt(0).toLowerCase() + b.does.slice(1)}`;
+  if (animate) s1.play(.9); else s1.still();
+}
+s1.cv.addEventListener('click', e => {
+  const [x, y] = s1.toLogical(e);
+  const hit = chips1.find(c => x >= c.x && x <= c.x + c.w && y >= c.y && y <= c.y + c.h);
+  if (hit) pick1(hit.i, true);
+});
+pick1(0, false);
+
+/* ---------- 2 · each dollar buys less ---------- */
+const P2 = {x0:52, x1:354, y0:34, y1:222, xmax:2000, ymax:70};
+const F2 = frame(P2, {xt:[0, 500, 1000, 1500, 2000], yt:[0, 20, 40, 60], fx:v => money(v), fy:v => v, title:'Sales a day'});
+const st2 = {S:500};
+const s2 = scene('s2', {H:300, dur:1.9, draw(ctx, t){
+  F2.draw(ctx);
+  const d = easeIO(seg(t, .05, 1.2)), a = easeOut(seg(t, 1.1, 1.7));
+  plot(ctx, F2, sales, 0, 2000 * d, {color:C.faint, lw:3});
+  const S = st2.S, lo = Math.max(0, S - 100);
+  plot(ctx, F2, sales, 0, 100, {color:C.alt, lw:7, alpha:a});
+  plot(ctx, F2, sales, lo, S, {color:C.you, lw:7, alpha:a});
+  const x = F2.X(S), y = F2.Y(sales(S));
+  dot(ctx, x, y, 6.5, C.you, a);
+  txt(ctx, `${num(sales(S), 1)} a day`, clamp(x, 70, 330), y - 16, {size:12.5, w:800, align:'center', color:C.you, alpha:a});
+  const first = sales(100), last = sales(S) - sales(lo);
+  txt(ctx, 'Daily spend', (P2.x0 + P2.x1) / 2, 262, {size:12, w:600, align:'center', color:C.muted, alpha:d});
+  txt(ctx, `First $100 buys ${num(first, 1)} sales`, 16, 290, {size:12.5, w:800, color:C.alt, alpha:a});
+  txt(ctx, `Last $100 buys ${num(last, 1)}`, 384, 290, {size:12.5, w:800, align:'right', color:C.you, alpha:a});
+}});
+function set2(S){
+  st2.S = S;
+  document.getElementById('osp2').textContent = money(S);
+  const lo = Math.max(0, S - 100);
+  readout('out2', [
+    ['Sales a day', num(sales(S), 1)],
+    ['Average cost per sale', money(avg(S), 2)],
+    [S <= 100 ? 'The first $100 buys' : 'The last $100 buys', `${num(sales(S) - sales(lo), 1)} sales`, 'hot']
+  ]);
+  s2.still();
+}
+document.getElementById('sp2').addEventListener('input', e => set2(+e.target.value));
+set2(500);
+
+/* ---------- 3 · average vs extra cost ---------- */
+const P3 = {x0:52, x1:354, y0:34, y1:226, xmax:2000, ymax:60};
+const F3 = frame(P3, {xt:[0, 500, 1000, 1500, 2000], yt:[0, 20, 40, 60], fx:v => money(v), fy:v => '$' + v, title:'Cost per sale'});
+const T3 = turn(CUR), AV3 = 1318;
+const st3 = {S:500};
+const s3 = scene('s3', {H:300, dur:2.2, draw(ctx, t){
+  F3.draw(ctx);
+  const d = easeIO(seg(t, .05, 1.3)), a = easeOut(seg(t, 1.2, 1.8));
+  const clip = [P3.x0, P3.y0 - 2, P3.x1 - P3.x0, P3.y1 - P3.y0 + 2];
+  hline(ctx, F3, BE, P3.x0, P3.x1, C.loss, d);
+  plot(ctx, F3, avg, 1, 2000 * d, {color:C.alt, lw:3.5, clip});
+  plot(ctx, F3, extra, 0, 2000 * d, {color:C.you, lw:3.5, clip});
+  /* where each line crosses breakeven */
+  dot(ctx, F3.X(T3), F3.Y(BE), 5, C.you, a);
+  dot(ctx, F3.X(AV3), F3.Y(BE), 5, C.alt, a);
+  txt(ctx, money(T3), F3.X(T3) - 8, F3.Y(BE) - 9, {size:12, w:800, align:'right', color:C.you, alpha:a});
+  txt(ctx, money(AV3), F3.X(AV3) - 8, F3.Y(BE) - 9, {size:12, w:800, align:'right', color:C.alt, alpha:a});
+  txt(ctx, 'breakeven $27', P3.x1, F3.Y(BE) + 17, {size:12, w:700, align:'right', color:C.loss, alpha:a});
+  /* the chosen spend */
+  const S = st3.S, x = F3.X(S);
+  /* leave a gap where the line would cross a breakeven label */
+  const gap = [T3, AV3].some(v => { const r = F3.X(v) - 8; return x >= r - measure(ctx, money(v), 12, 800) - 3 && x <= r + 3; });
+  ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = C.faint; ctx.lineWidth = 1.2; ctx.setLineDash([3, 4]);
+  ctx.beginPath(); ctx.moveTo(x, P3.y0);
+  if (gap){ ctx.lineTo(x, F3.Y(BE) - 24); ctx.moveTo(x, F3.Y(BE) - 3); }
+  ctx.lineTo(x, P3.y1); ctx.stroke(); ctx.restore();
+  dot(ctx, x, F3.Y(avg(S)), 6, C.alt, a);
+  const e = extra(S);
+  if (e <= P3.ymax) dot(ctx, x, F3.Y(e), 6, C.you, a);
+  else txt(ctx, `↑ ${money(e)}`, clamp(x, 40, 360), P3.y0 - 6, {size:12, w:800, align:'center', color:C.you, alpha:a});
+  const p = profit(S);
+  txt(ctx, `Profit at ${money(S)} a day: ${money(p)}`, 16, 268, {size:14, w:850, color:p < 0 ? C.loss : C.ink, alpha:a});
+  txt(ctx, 'It peaks at $588 a day, where the extra sales cost $27.', 16, 290, {size:12.5, w:600, color:C.muted, alpha:a});
+}});
+function set3(S){
+  st3.S = S;
+  document.getElementById('osp3').textContent = money(S);
+  const e = extra(S), p = profit(S);
+  readout('out3', [
+    ['Average cost per sale', money(avg(S), 2)],
+    ['Cost of the extra sales', money(e, 2), e > BE ? 'bad' : 'hot'],
+    ['Profit a day', money(p), p < 0 ? 'bad' : '']
+  ]);
+  s3.still();
+}
+document.getElementById('sp3').addEventListener('input', e => set3(+e.target.value));
+set3(500);
+
+/* ---------- 4 · one jump vs steps ---------- */
+const L4A = [100, 100, 100, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000, 1000];
+const L4B = [100, 100, 100, 150, 150, 150, 225, 225, 225, 340, 340, 340, 500, 500, 500, 750, 750, 500];
+const STEP4 = [3, 6, 9, 12, 15].map(d => {
+  const a = L4B[d - 1], b = L4B[d];
+  return {d, cost:(b - a) / (sales(b) - sales(a)), span:d === 15 ? 2 : 3};
+});
+const JUMP4 = 900 / (sales(1000) - sales(100));
+const X4 = d => 24 + d * (352 / 18);
+function lane(ctx, L, base, top, p, a){
+  const h = base - top;
+  ctx.save(); ctx.globalAlpha *= a;
+  ctx.strokeStyle = C.line; ctx.lineWidth = 1;
+  for (let d = 0; d <= 18; d++){ ctx.beginPath(); ctx.moveTo(X4(d), top); ctx.lineTo(X4(d), base); ctx.stroke(); }
+  ctx.beginPath(); ctx.moveTo(X4(0), base);
+  const n = Math.floor(p), fr = p - n;
+  for (let d = 0; d < Math.min(18, Math.ceil(p)); d++){
+    const y = base - L[d] / 1000 * h, x1 = d < n ? X4(d + 1) : X4(d) + (X4(d + 1) - X4(d)) * fr;
+    ctx.lineTo(X4(d), y); ctx.lineTo(x1, y);
+  }
+  const xe = p >= 18 ? X4(18) : X4(n) + (X4(n + 1) - X4(n)) * fr;
+  ctx.lineTo(xe, base); ctx.closePath();
+  ctx.fillStyle = C.yousoft; ctx.fill();
+  ctx.strokeStyle = C.you; ctx.lineWidth = 2.4; ctx.lineJoin = 'round'; ctx.stroke();
+  ctx.strokeStyle = C.faint; ctx.lineWidth = 1.4; ctx.beginPath(); ctx.moveTo(X4(0), base); ctx.lineTo(X4(18), base); ctx.stroke();
+  ctx.restore();
+}
+const s4 = scene('s4', {H:332, dur:6.4, draw(ctx, t){
+  const p = clamp(t / 5.4) * 18, end = seg(t, 5.5, 6.1), day = Math.min(18, Math.max(1, Math.ceil(p)));
+  /* top lane: one jump */
+  txt(ctx, 'One big jump', 16, 18, {size:14, w:850});
+  if (end < 1) txt(ctx, `Day ${day}`, 384, 18, {size:12.5, w:700, align:'right', color:C.muted, alpha:1 - end});
+  txt(ctx, `Day 18: ${money(profit(1000))} a day profit`, 384, 18, {size:12.5, w:800, align:'right', color:C.ink, alpha:end});
+  lane(ctx, L4A, 120, 40, p, 1);
+  const j = seg(p, 3, 4.2);
+  if (j > 0){
+    const cx = X4(3) + 22, cy = 62;
+    ctx.save(); ctx.globalAlpha *= j; ctx.strokeStyle = C.loss; ctx.lineWidth = 3; ctx.setLineDash([4, 4]);
+    ctx.beginPath(); ctx.arc(cx, cy, 9, 0, TAU); ctx.stroke(); ctx.restore();
+    txt(ctx, 'may restart learning', cx + 16, cy + 4, {size:12.5, w:800, color:C.loss, alpha:j});
+  }
+  txt(ctx, `Extra sales average ${money(JUMP4)} each, under $27.`, 16, 140, {size:12.5, w:700, color:C.ink, alpha:seg(p, 5, 7)});
+  txt(ctx, `But the last ones cost ${money(extra(1000))}.`, 16, 158, {size:12.5, w:700, color:C.loss, alpha:seg(p, 7, 9)});
+  /* bottom lane: steps */
+  txt(ctx, 'Raise in steps', 16, 190, {size:14, w:850});
+  if (end < 1) txt(ctx, `Day ${day}`, 384, 190, {size:12.5, w:700, align:'right', color:C.muted, alpha:1 - end});
+  txt(ctx, `Day 18: ${money(profit(500))} a day profit`, 384, 190, {size:12.5, w:800, align:'right', color:C.ink, alpha:end});
+  const base = 282, top = 202;
+  lane(ctx, L4B, base, top, p, 1);
+  STEP4.forEach(s => {
+    const a = seg(p, s.d + .2, s.d + .9);
+    if (a <= 0) return;
+    const y = base - L4B[s.d] / 1000 * (base - top) - 7, x = X4(s.d) + (X4(s.d + s.span) - X4(s.d)) / 2;
+    txt(ctx, money(s.cost), x, y, {size:12.5, w:850, align:'center', color:s.cost > BE ? C.loss : C.you, alpha:a});
+  });
+  txt(ctx, 'Over each step: what its extra sales cost.', 16, 304, {size:12.5, w:600, color:C.muted, alpha:seg(p, 4, 6)});
+  txt(ctx, '$28 is over the $27 breakeven, so that step is undone.', 16, 322, {size:12.5, w:600, color:C.muted, alpha:end});
+}});
+
+/* ---------- 5 · more budget vs more concepts ---------- */
+const P5 = {x0:52, x1:354, y0:34, y1:218, xmax:2000, ymax:90};
+const F5 = frame(P5, {xt:[0, 500, 1000, 1500, 2000], yt:[0, 30, 60, 90], fx:v => money(v), fy:v => v, title:'Sales a day'});
+const st5 = {m:0, from:0};
+const mix5 = q => ({A:lerp(CUR.A, NEW.A, q), K:lerp(CUR.K, NEW.K, q)});
+const s5 = scene('s5', {H:300, dur:1.4, draw(ctx, t){
+  F5.draw(ctx);
+  const e = easeIO(seg(t, 0, 1.1)), q = lerp(st5.from, st5.m, e), P = mix5(q);
+  /* the original curve stays as a ghost */
+  if (q > .01) plot(ctx, F5, S => sales(S, CUR), 0, 2000, {color:C.faint, lw:2.5, dash:[5, 5], alpha:Math.min(1, q * 1.5)});
+  plot(ctx, F5, S => sales(S, P), 0, 2000, {color:q > .5 ? C.alt : C.you, lw:3.5});
+  const x = F5.X(1000);
+  ctx.save(); ctx.strokeStyle = C.faint; ctx.lineWidth = 1.2; ctx.setLineDash([3, 4]);
+  ctx.beginPath(); ctx.moveTo(x, P5.y0); ctx.lineTo(x, P5.y1); ctx.stroke(); ctx.restore();
+  txt(ctx, '$1,000 a day', x + 6, P5.y0 + 10, {size:12, w:700, color:C.muted});
+  const tn = turn(P);
+  diamond(ctx, F5.X(tn), P5.y1, 6, C.loss);
+  const y = F5.Y(sales(1000, P));
+  dot(ctx, x, y, 7, q > .5 ? C.alt : C.you);
+  txt(ctx, `${num(sales(1000, P))} sales`, x - 12, y - 10, {size:13, w:850, align:'right', color:q > .5 ? C.alt : C.you});
+  /* bottom lines */
+  diamond(ctx, 21, 258, 6, C.loss);
+  txt(ctx, `Extra sales pass the $27 breakeven at ${money(Math.round(tn))} a day.`, 32, 262, {size:12.5, w:700});
+  txt(ctx, st5.m ? 'New concepts shift the curve up and out. Dashed: before.' : 'More budget slides along the same curve.', 16, 286, {size:12.5, w:600, color:C.muted});
+}});
+function set5(m, animate){
+  st5.from = animate ? st5.m : m; st5.m = m;
+  document.querySelectorAll('#s5 [data-mode]').forEach(b => b.setAttribute('aria-pressed', +b.dataset.mode === m ? 'true' : 'false'));
+  const P = m ? NEW : CUR, e = extra(1000, P);
+  readout('out5', [
+    ['Sales a day at $1,000', num(sales(1000, P))],
+    ['Average cost per sale', money(avg(1000, P), 2)],
+    ['Cost of the extra sales', money(e, 2), e > BE ? 'bad' : 'hot']
+  ]);
+  if (animate) s5.play(0); else s5.still();
+}
+document.querySelectorAll('#s5 [data-mode]').forEach(b => b.addEventListener('click', () => set5(+b.dataset.mode, true)));
+set5(0, false);
+
+/* ---------- 6 · goals are brakes ---------- */
+const B6 = 1500;
+const P6 = {x0:52, x1:354, y0:34, y1:218, xmax:B6, ymax:40};
+const F6 = frame(P6, {xt:[0, 500, 1000, 1500], yt:[0, 10, 20, 30, 40], fx:v => money(v), fy:v => '$' + v, title:'Average cost per sale'});
+const st6 = {g:20};
+function stop6(g){
+  if (avg(B6) <= g) return B6;
+  let lo = 1, hi = B6;
+  for (let i = 0; i < 60; i++){ const m = (lo + hi) / 2; if (avg(m) < g) lo = m; else hi = m; }
+  return lo;
+}
+const s6 = scene('s6', {H:300, dur:1.8, draw(ctx, t){
+  F6.draw(ctx);
+  const d = easeIO(seg(t, .05, 1.1)), a = easeOut(seg(t, 1, 1.6));
+  const g = st6.g, S = stop6(g), xs = F6.X(S);
+  /* spent and unspent zones */
+  ctx.save(); ctx.globalAlpha *= a;
+  ctx.fillStyle = C.yousoft; ctx.fillRect(P6.x0, P6.y0, xs - P6.x0, P6.y1 - P6.y0);
+  if (S < B6){
+    ctx.save(); ctx.beginPath(); ctx.rect(xs, P6.y0, P6.x1 - xs, P6.y1 - P6.y0); ctx.clip();
+    ctx.strokeStyle = C.line; ctx.lineWidth = 1.4;
+    for (let k = -200; k < 400; k += 10){ ctx.beginPath(); ctx.moveTo(xs + k, P6.y1); ctx.lineTo(xs + k + 190, P6.y0); ctx.stroke(); }
+    ctx.restore();
+  }
+  ctx.restore();
+  hline(ctx, F6, BE, P6.x0, P6.x1, C.loss, d);
+  hline(ctx, F6, g, P6.x0, P6.x1, C.you, d);
+  plot(ctx, F6, avg, 1, B6 * d, {color:C.alt, lw:3.5});
+  if (S < B6 && P6.x1 - xs > 76) txt(ctx, 'unspent', (xs + P6.x1) / 2, P6.y1 - 12, {size:12.5, w:800, align:'center', color:C.muted, alpha:a});
+  ctx.save(); ctx.globalAlpha *= a; ctx.strokeStyle = C.you; ctx.lineWidth = 2.4;
+  ctx.beginPath(); ctx.moveTo(xs, P6.y0); ctx.lineTo(xs, P6.y1); ctx.stroke(); ctx.restore();
+  dot(ctx, xs, F6.Y(avg(S)), 6.5, C.you, a);
+  const all = S >= B6;
+  txt(ctx, all ? `Spends the whole ${money(B6)} a day` : `Stops at ${money(S)} a day`, 16, 264, {size:14, w:850, color:C.you, alpha:a});
+  txt(ctx, all ? 'At this budget the average never reaches the goal.' : `${money(B6 - S)} of the ${money(B6)} budget goes unspent.`, 16, 286, {size:12.5, w:600, color:C.muted, alpha:a});
+}});
+function set6(g){
+  st6.g = g;
+  document.getElementById('og6').textContent = money(g);
+  const S = stop6(g), p = profit(S);
+  readout('out6', [
+    ['Spent a day', money(S)],
+    ['Sales a day', num(sales(S), 1)],
+    ['Average cost', money(avg(S), 2)],
+    ['Profit a day', money(p), p < 0 ? 'bad' : 'hot']
+  ]);
+  s6.still();
+}
+document.getElementById('g6').addEventListener('input', e => set6(+e.target.value));
+set6(20);
+})();
+</script>
+</body>
+</html>
