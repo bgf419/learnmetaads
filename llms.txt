@@ -1,0 +1,33 @@
+# Learn Meta Ads
+
+> Free animated lessons on Meta ads: how the auction picks ads, creative strategy, media buying, measurement and the weekly routine of a great Meta advertiser. Free, no sign-up. Written by Brett G. Friedman, Founder, The Creative Strategy Agency (TCSA).
+
+Independent guide, not affiliated with or endorsed by Meta Platforms, Inc. Numbers labelled "Example numbers" are made up for teaching; "Meta says" lines link Meta's own documentation.
+
+## Foundations
+
+- [How creative wins on Meta](https://learnmetaads.com/how-creative-wins/): One feed seat at a time: the auction, the chain from hook to sale, and why the number of real shots decides how many winners you get.
+- [The numbers behind a sale](https://learnmetaads.com/the-numbers/): CPM, click-through rate, conversion rate and cost per purchase are one chain. Learn to read it and find the link that broke.
+- [What you can afford to pay](https://learnmetaads.com/what-you-can-pay/): Margin, breakeven ROAS and lifetime value set the ceiling on every result you buy.
+
+## Creative strategy
+
+- [Concepts: who, what and why](https://learnmetaads.com/concepts/): Awareness levels, angles and the concept grid that turns one product into dozens of genuinely different ads.
+- [Hooks and the anatomy of an ad](https://learnmetaads.com/hooks/): The first seconds decide everything after them. How the hook, body and offer each earn the next second.
+- [Iterate, explore, refresh](https://learnmetaads.com/iterate-and-refresh/): Read what won, make more of it, keep swinging at new ideas, and replace ads before they wear out.
+
+## Media buying
+
+- [Account structure and learning](https://learnmetaads.com/account-structure/): Campaigns, ad sets and ads, why fewer ad sets learn faster, and which edits send an ad set back to learning.
+- [Budgets, bids and scaling](https://learnmetaads.com/budgets-bids-scaling/): Bid strategies, why the next dollar buys less than the last, and how to grow spend without wrecking cost per result.
+- [Testing without fooling yourself](https://learnmetaads.com/testing/): Small numbers lie. How much data a verdict needs, and simple rules for cutting and keeping ads.
+
+## Measurement and the weekly rhythm
+
+- [Tracking and attribution](https://learnmetaads.com/tracking-attribution/): Pixel, Conversions API, attribution windows, and the gap between the sales Meta counts and the sales your ads caused.
+- [The weekly playbook](https://learnmetaads.com/weekly-playbook/): Everything in one weekly rhythm: read the numbers, read the creative, brief, launch, and keep the account healthy.
+
+## Practice
+
+- [Taste Maker](https://thecreativetastemaker.com/): a free game where you call real ads as winners or losers.
+- [The Creative Strategy Agency](https://thecreativestrategyagency.com/): the agency behind the course.
